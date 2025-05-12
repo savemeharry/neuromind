@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neuro Mind Therapy</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo"><img src="logo.svg" alt="Neuro Mind Therapy Logo" style="height:48px;vertical-align:middle;"></a>
+            <ul class="nav-links">
+                <li><a href="#about">О программе</a></li>
+                <li><a href="#programs">Программы</a></li>
+                <li><a href="#how-it-works">Как это работает</a></li>
+                <li><a href="#benefits">Преимущества</a></li>
+                <li><a href="#testimonials">Отзывы</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact" class="nav-cta">Контакты</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars menu-icon"></i>
+                <i class="fas fa-times close-icon" style="display: none;"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero секция -->
+    <section class="hero" id="hero">
+        <div id="particles-js"></div>
+        <div class="hero-bg-accent-diamond"></div>
+        <div class="container">
+            <div class="hero-logo-animated-wrapper">
+                <!-- Inline SVG logo for animation -->
+                <svg class="hero-logo-animated" width="53" height="53" viewBox="0 0 53 53" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1.6665 2.01666L1.6665 37.5" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                  <path d="M1.702 2.19085L50.8459 51.3347" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                  <path d="M50.4507 51.2325V11.5" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                  <path d="M29.8399 22.8435C31.7925 24.7961 31.7925 27.9619 29.8399 29.9146C27.8872 31.8672 24.7214 31.8672 22.7688 29.9146C20.8162 27.9619 20.8162 24.7961 22.7688 22.8435C24.7214 20.8909 27.8872 20.8909 29.8399 22.8435Z" fill="black" stroke="white" stroke-width="3"/>
+                  <circle cx="38" cy="14" r="1.5" fill="white" stroke="white"/>
+                  <circle cx="50" cy="2" r="1.5" fill="white" stroke="white"/>
+                  <circle cx="13.3336" cy="39.814" r="1.5" fill="white" stroke="white"/>
+                  <circle cx="2" cy="50" r="1.5" fill="white" stroke="white"/>
+                </svg>
+            </div>
+            <h1 class="hero-title hero-title-typewriter">
+                Лаборатория
+                <br>
+                <span><span id="typewriter-text" class="accent-type"></span><span class="typewriter-cursor">|</span> разума.</span>
+            </h1>
+            <p class="hero-subtitle">Первая научно обоснованная программа психологической поддержки и развития когнитивных навыков в Казахстане и СНГ.</p>
+            <a href="#programs" class="cta-button">Узнать о программах</a>
+        </div>
+        
+        <div class="hero-decoration">
+            <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="" class="hero-brain-image">
+            <div class="hero-glow"></div>
+        </div>
+    </section>
+
+    <!-- О программе -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">О программе Neuro Mind Therapy</h2>
+            <div class="about-content">
+                <p>Neuro Mind Therapy — это <strong>революционная программа</strong>, сочетающая персонализированные психологические сессии, передовые измерения активности мозга с помощью ЭЭГ и доступную онлайн-поддержку через наш Telegram-навигатор и обширную базу знаний.</p>
+                
+                <div class="about-features">
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h3>Научная основа</h3>
+                            <p>Наши методы основаны на исследованиях и используют ЭЭГ для объективного отслеживания прогресса и нейрофизиологических изменений.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-user-gear"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h3>Персонализированный подход</h3>
+                            <p>Каждый клиент получает индивидуальные сессии, учитывающие его уникальные потребности, текущее состояние и цели терапии.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h3>Измеримые результаты</h3>
+                            <p>Отслеживайте прогресс с помощью измерений активности мозга на каждом этапе, наблюдая реальные изменения в нейропаттернах.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-hand-holding-medical"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h3>Удобный доступ</h3>
+                            <p>Получайте поддержку в любое время через Telegram и нашу обширную базу знаний для углубленного понимания работы мозга и психики.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="decorative-element left-element"></div>
+        <div class="decorative-element right-element"></div>
+    </section>
+
+    <!-- Наши программы -->
+    <section class="programs" id="programs">
+        <div class="container">
+            <h2 class="section-title">Наши программы</h2>
+            <div class="program-cards">
+                <!-- Базовый трек -->
+                <div class="program-card" data-package="base">
+                    <div class="card-particles"></div>
+                    <div class="card-glow"></div>
+                    <div class="card-badge">Базовый</div>
+                    <div class="card-track">Базовый трек</div>
+                    <h3 class="card-title">Устойчивость к стрессу</h3>
+                    <p class="card-description">70-дневная программа перезагрузки нервной системы и тренировки устойчивости — научный подход к восстановлению внутреннего равновесия.</p>
+                    
+                    <div class="card-price-block">
+                        <span class="card-price">400 000 тг</span>
+                        <button class="card-toggle-details">Подробнее <i class="arrow-down"></i></button>
+                    </div>
+
+                    <div class="card-details">
+                        <div class="card-section">
+                            <h4>Для кого:</h4>
+                            <ul>
+                                <li>Живёте в ритме перегрузки, тревоги и усталости.</li>
+                                <li>Ищете удобную и доступную программу самопомощи.</li>
+                                <li>Хотите научиться расслабляться и концентрироваться без психолога.</li>
+                                <li>Предпочитаете научные подходы, а не эзотерику.</li>
+                                <li>Хотите видеть свой прогресс — не только чувствовать.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="card-section">
+                            <h4>Что делает особенным:</h4>
+                            <ul>
+                                <li>Методика с научной базой, основанная на диссертационном исследовании и доказанных психотехниках (КПТ + гештальт).</li>
+                                <li>Мониторинг ЭЭГ: видите реальные изменения в мозговой активности до и после сеансов.</li>
+                                <li>Удобный формат: 10 авторских сессий в аудио/видео формате — включай и следуй инструкциям.</li>
+                                <li>Гибкий ритм: можно проходить курс дома, в своём темпе, в любое удобное время.</li>
+                                <li>Результат виден в цифрах и ощущениях: нейромониторинг отслеживает вашу концентрацию, расслабление и устойчивость.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="card-section">
+                            <h4>Структура программы:</h4>
+                            <ol>
+                                <li><span class="highlight">Этап 1 — Перезагрузка нервной системы (6 недель):</span> 10 записанных сессий с сопровождением нейроизмерений. Перерыв — 7 дней на интеграцию. Повтор 10 сессий для усиления результата.</li>
+                                <li><span class="highlight">Этап 2 — Тренировка фокуса и устойчивости (4 недели):</span> 5 ЭЭГ-сеансов глубокой нейрорелаксации. Перерыв 7 дней. 5 ЭЭГ-сеансов на развитие концентрации и стрессоустойчивости.</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="card-cta">Выбрать пакет</a>
+                </div>
+                
+                <!-- Индивидуальный трек -->
+                <div class="program-card premium" data-package="premium">
+                    <div class="card-particles blue"></div>
+                    <div class="card-glow blue"></div>
+                    <div class="card-badge premium">Премиум</div>
+                    <div class="card-track">Индивидуальный трек</div>
+                    <h3 class="card-title">Персональный маршрут восстановления</h3>
+                    <p class="card-description">100 дней научно обоснованного пути к себе новому с ЭЭГ-мониторингом, психологическим сопровождением и техникой, созданной персонально для вас.</p>
+                    
+                    <div class="card-price-block">
+                        <span class="card-price">700 000 тг</span>
+                        <button class="card-toggle-details">Подробнее <i class="arrow-down"></i></button>
+                    </div>
+                    
+                    <div class="card-details">
+                        <div class="card-section">
+                            <h4>Для кого:</h4>
+                            <ul>
+                                <li>Хотите не просто «пережить трудности», а понять и трансформировать свои внутренние состояния.</li>
+                                <li>Устали бороться в одиночку с тревожностью, выгоранием, перегрузками.</li>
+                                <li>Предпочитаете научные данные и доказательность — видеть прогресс по ЭЭГ, а не «на глаз».</li>
+                                <li>Нуждаетесь в глубокой работе с психологом и индивидуальной технике восстановления.</li>
+                                <li>Хотите получить навык устойчивости, который останется с вами на всю жизнь.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="card-section">
+                            <h4>Структура программы (100 дней):</h4>
+                            <ol>
+                                <li><span class="highlight">Этап 1 — Диагностика и запуск восстановления (3 недели):</span> 5 индивидуальных сессий с психологом. ЭЭГ-диагностика: до, во время и после каждого сеанса. Выявление ключевых триггеров, глубинных причин напряжения и тревожности.</li>
+                                <li><span class="highlight">Этап 2 — Персональная программа трансформации (7 недель):</span> Разработка индивидуальной техники восстановления, основанной на результатах сессий с психологом. 10 аудио/видео сессий для глубокой проработки. Перерыв на интеграцию. Повтор 10 сессий — для закрепления и усиления эффекта.</li>
+                                <li><span class="highlight">Этап 3 — Навыки устойчивости и саморегуляции (4 недели):</span> 5 нейросеансов на глубокую релаксацию. Перерыв. 5 нейросеансов на развитие концентрации и стрессоустойчивости.</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="card-cta">Выбрать пакет</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="decorative-circle circle-1"></div>
+        <div class="decorative-circle circle-2"></div>
+    </section>
+
+    <!-- Как это работает -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <h2 class="section-title">Как это работает</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fa-solid fa-comments"></i>
+                    </div>
+                    <h3>Индивидуальные терапевтические сессии</h3>
+                    <p>Личные встречи с опытными психологами для решения ваших конкретных задач, постановки целей и создания персонального плана терапии.</p>
+                    <div class="step-image">
+                        <img src="media/image_02.png" alt="Индивидуальные терапевтические сессии">
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <h3>Измерения активности мозга (ЭЭГ)</h3>
+                    <p>Регулярные оценки с помощью современного оборудования для объективного мониторинга изменений в работе мозга и отслеживания прогресса.</p>
+                    <div class="step-image">
+                        <img src="media/image_05.png" alt="Измерения активности мозга (ЭЭГ)">
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+                    <h3>Круглосуточная онлайн-поддержка</h3>
+                    <p>Доступ к нашему Telegram-навигатору для постоянной помощи и базе ресурсов для углубленного понимания работы мозга и психики в любое время.</p>
+                    <div class="step-image">
+                        <img src="media/image_03.png" alt="Онлайн-поддержка">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Преимущества -->
+    <section class="benefits" id="benefits">
+        <div class="container">
+            <h2 class="section-title">Преимущества Neuro Mind Therapy</h2>
+            <ul class="benefits-list">
+                <li>
+                    <i class="fa-solid fa-circle-check"></i>
+                    <p><strong>Улучшайте психическое здоровье:</strong> Используйте проверенные техники для преодоления трудностей и укрепления устойчивости, основанные на нейрофизиологических исследованиях.</p>
+                </li>
+                <li>
+                    <i class="fa-solid fa-circle-check"></i>
+                    <p><strong>Развивайте когнитивные навыки:</strong> Повышайте концентрацию, память и способности к решению проблем с помощью целенаправленных нейротренировок.</p>
+                </li>
+                <li>
+                    <i class="fa-solid fa-circle-check"></i>
+                    <p><strong>Получайте ясность:</strong> Понимание работы вашего мозга через научные измерения дает четкую картину изменений и позволяет видеть объективный прогресс.</p>
+                </li>
+                <li>
+                    <i class="fa-solid fa-circle-check"></i>
+                    <p><strong>Гибкая поддержка:</strong> Получайте помощь и ресурсы в удобное для вас время и в любом месте благодаря нашей интегрированной системе сопровождения.</p>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="decorative-line"></div>
+    </section>
+
+    <!-- Отзывы -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">Отзывы наших клиентов</h2>
+            <div class="testimonials-slider">
+                <div class="testimonial-slide">
+                    <div class="testimonial-content">
+                        <div class="client-photo">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Клиент">
+                        </div>
+                        <p>"Neuro Mind Therapy изменила мое психическое здоровье. Персонализированный подход и измеряемые результаты стали переломным моментом. Теперь я вижу и чувствую изменения в своем состоянии."</p>
+                        <h4>Айгуль К.</h4>
+                    </div>
+                </div>
+                <div class="testimonial-slide">
+                    <div class="testimonial-content">
+                        <div class="client-photo">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Клиент">
+                        </div>
+                        <p>"После программы я заметил значительное улучшение в своей способности справляться со стрессом. ЭЭГ-мониторинг помог увидеть мой прогресс, что дополнительно мотивировало продолжать работу."</p>
+                        <h4>Дамир Н.</h4>
+                    </div>
+                </div>
+                <div class="testimonial-slide">
+                    <div class="testimonial-content">
+                        <div class="client-photo">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Клиент">
+                        </div>
+                        <p>"Индивидуальный подход и научная основа программы выделяют ее среди других. Я рекомендую всем, кто ищет реальные изменения. Результаты превзошли мои ожидания."</p>
+                        <h4>Гульнара С.</h4>
+                    </div>
+                </div>
+                <!-- Кнопки для слайдера -->
+                <div class="slider-controls">
+                    <button class="prev-btn">&lt;</button>
+                    <button class="next-btn">&gt;</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2 class="section-title">Часто задаваемые вопросы</h2>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">Что такое ЭЭГ и как это помогает в терапии?</div>
+                    <div class="accordion-content">
+                        <p>ЭЭГ (электроэнцефалография) — неинвазивный метод измерения активности мозга, помогающий отслеживать ваш прогресс объективно. Это позволяет нам наблюдать изменения в паттернах мозговых волн, связанных с релаксацией, концентрацией и эмоциональным состоянием, создавая точную карту вашего прогресса.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">Как долго длятся терапевтические сессии?</div>
+                    <div class="accordion-content">
+                        <p>Сессии обычно длятся 60 минут и адаптированы под ваши потребности. В индивидуальном треке мы можем корректировать продолжительность в зависимости от ваших конкретных целей и прогресса, чтобы обеспечить оптимальные результаты.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">Подходит ли программа всем?</div>
+                    <div class="accordion-content">
+                        <p>Да, наша программа предназначена для всех, кто хочет улучшить психическое здоровье и когнитивные навыки, независимо от бэкграунда. Мы адаптируем подход к каждому клиенту, учитывая индивидуальные особенности, цели и исходное состояние, что делает нашу методику универсальной.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">Сколько времени нужно, чтобы увидеть результаты?</div>
+                    <div class="accordion-content">
+                        <p>Многие клиенты замечают первые изменения уже после 2-3 недель программы. Объективные данные ЭЭГ позволяют фиксировать даже самые небольшие улучшения. Полный эффект программы развивается постепенно и становится устойчивым к концу курса, формируя долгосрочные изменения в работе нервной системы.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">Что включает в себя онлайн-поддержка?</div>
+                    <div class="accordion-content">
+                        <p>Наша онлайн-поддержка включает приватный Telegram-канал с ежедневными рекомендациями, ответы на вопросы от специалистов, доступ к базе знаний с научными материалами и видеоинструкциями, а также напоминания и отслеживание вашего прогресса в удобной цифровой форме.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Контакты</h2>
+            <p class="contact-intro">Готовы сделать первый шаг к здоровому разуму? Свяжитесь с нами сегодня, чтобы узнать больше о нашей программе и начать свой путь к психологическому благополучию.</p>
+            
+            <div class="contact-info">
+                <div class="contact-details">
+                    <h3 class="contact-title">Наши координаты</h3>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <p>8 701 789 28 97</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <p>neuromindtherapy@gmail.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <p>ул. Сыганак, 47, БЦ "Евроцентр" Астана</p>
+                    </div>
+                    
+                    <div class="contact-map">
+                        <img src="https://maps.googleapis.com/maps/api/staticmap?center=Astana,+БЦ+Евроцентр,+Сыганак+47&zoom=15&size=400x250&maptype=roadmap&markers=color:blue%7Clabel:N%7CAstana,+БЦ+Евроцентр,+Сыганак+47&key=AIzaSyBGEpZmQW2unDXE-QQUeRSrW6xnVEpA4RA" alt="Карта с расположением офиса">
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3 class="contact-title">Записаться на консультацию</h3>
+                    <form id="consultation-form">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Ваше имя" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Ваш E-mail" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" name="phone" placeholder="Ваш телефон" required>
+                        </div>
+                        <div class="form-group">
+                            <select id="program" name="program">
+                                <option value="">Выберите программу</option>
+                                <option value="basic">Базовый трек</option>
+                                <option value="premium">Индивидуальный трек</option>
+                                <option value="consultation">Консультация</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="cta-button">Записаться на консультацию</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Neuro Mind Therapy</div>
+                <div class="footer-social">
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2023 Neuro Mind Therapy. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+    .accent-type {
+      color: var(--color-primary);
+    }
+    .typewriter-cursor {
+      display: inline-block;
+      width: 1ch;
+      color: var(--color-primary);
+      animation: blink-cursor 1s steps(1) infinite;
+      font-weight: 700;
+      font-size: 1.1em;
+      vertical-align: baseline;
+    }
+    @keyframes blink-cursor {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0; }
+    }
+    .hero-title-typewriter {
+      display: block;
+      width: 100%;
+      text-align: center;
+      white-space: normal;
+    }
+    @media (max-width: 600px) {
+      .hero-title-typewriter {
+        font-size: 6vw;
+      }
+    }
+    </style>
+    <script>
+    // Typewriter-эффект для двух слов, без переноса, с мигающим курсором и акцентным цветом
+    const words = ["исследования", "структурирования"];
+    const typewriterText = document.getElementById("typewriter-text");
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const typingDelay = 120;
+    const erasingDelay = 60;
+    const pauseAfterType = 1300;
+    const pauseAfterErase = 700;
+
+    function typeWriter() {
+      const currentWord = words[wordIndex];
+      if (!isDeleting) {
+        typewriterText.textContent = currentWord.substring(0, charIndex + 1);
+        charIndex++;
+        if (charIndex < currentWord.length) {
+          setTimeout(typeWriter, typingDelay);
+        } else {
+          setTimeout(() => { isDeleting = true; setTimeout(typeWriter, pauseAfterType); }, typingDelay);
+        }
+      } else {
+        typewriterText.textContent = currentWord.substring(0, charIndex - 1);
+        charIndex--;
+        if (charIndex > 0) {
+          setTimeout(typeWriter, erasingDelay);
+        } else {
+          isDeleting = false;
+          wordIndex = (wordIndex + 1) % words.length;
+          setTimeout(typeWriter, pauseAfterErase);
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(typeWriter, 800);
+    });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,2172 @@
+/* Reset and Basic Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* New Clean Palette */
+    --color-primary: #FA7959; /* Changed from #4A90E2 to #FA7959 */
+    --color-primary-darker: #E56548; /* Changed from #357ABD to darker version of #FA7959 */
+    --color-secondary-accent: #FFBF00; /* Slightly richer Gold, use sparingly */
+    --color-background: #050505; /* Even darker, cleaner near-black */
+    --color-background-secondary: #0c0c0c; /* Slightly lighter dark for cards/elements */
+    --color-text: #f5f5f5; /* Slightly brighter Light grey for text */
+    --color-text-muted: #b0b0b0; /* Muted grey */
+    --color-white: #FFFFFF;
+    --color-border: rgba(255, 255, 255, 0.1); /* Subtle border */
+    --color-blue-accent: #7187C6; /* New blue accent */
+    --color-black: #000000;
+
+    /* Removed overly bright blue/green, complex gradients, multiple glows */
+    
+    --shadow-soft: 0 5px 15px rgba(0, 0, 0, 0.1); /* Refined soft shadow */
+    --shadow-medium: 0 12px 35px rgba(0, 0, 0, 0.4); /* Slightly stronger */
+    --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.15); /* Slightly stronger */
+    /* Removed glow shadows */
+
+    --font-montserrat: 'Montserrat', sans-serif;
+    --font-opensans: 'Open Sans', sans-serif;
+    --font-primary: 'Montserrat', sans-serif;
+    --font-secondary: 'Open Sans', sans-serif;
+    --border-radius: 10px;
+    --transition-standard: all 0.3s ease;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-opensans);
+    background-color: var(--color-background); /* Cleaner background */
+    color: var(--color-text);
+    line-height: 1.7; /* Slightly increased for readability */
+    overflow-x: hidden;
+    /* Removed background texture */
+}
+
+.container {
+    width: 100%;
+    max-width: 1160px; /* Slightly adjusted */
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-montserrat);
+    font-weight: 600; /* Slightly reduced default weight */
+    color: var(--color-white); /* Ensure headings are bright */
+    line-height: 1.3;
+}
+
+h1 { font-size: 42px; }
+h2 { font-size: 34px; }
+h3 { font-size: 24px; }
+h4 { font-size: 18px; }
+
+a {
+    text-decoration: none;
+    color: var(--color-primary); /* Use primary color for links */
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-primary-darker);
+}
+
+ul, ol {
+    list-style-position: inside;
+    padding-left: 5px; /* Ensure lists aren't flush left */
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 60px; /* Increased spacing */
+    font-size: 34px;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--color-white); /* White title */
+}
+
+.section-title::after {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px; /* Slightly shorter */
+    height: 3px;
+    background: var(--color-primary); /* Use primary color */
+    border-radius: 3px;
+    /* Removed gradient */
+}
+
+section {
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Remove subtle top border on sections */
+section::before {
+   display: none;
+}
+
+/* Кнопки */
+.cta-button {
+    display: inline-block;
+    background: var(--color-primary); /* Solid primary color */
+    color: var(--color-white);
+    font-family: var(--font-montserrat);
+    font-weight: 600; /* Adjusted weight */
+    padding: 15px 35px; /* Adjusted padding */
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    font-size: 16px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 4px 15px rgba(250, 121, 89, 0.3); /* Subtle shadow matching primary */
+    overflow: hidden;
+    /* Removed gradient and ::before pseudo-element */
+}
+
+
+.cta-button:hover {
+    background-color: var(--color-primary-darker);
+    transform: translateY(-3px); /* Subtle lift */
+    box-shadow: 0 7px 20px rgba(250, 121, 89, 0.4); /* Enhanced shadow on hover */
+    color: var(--color-background); /* Темный цвет текста при наведении */
+}
+
+/* Навигация */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2000; /* Увеличиваем z-index навбара */
+    background-color: rgba(15, 15, 17, 0.85); /* Match new background, slightly transparent */
+    padding: 15px 0;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(8px); /* Slightly less blur */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Softer shadow */
+    align-items: center;
+}
+
+.navbar.scrolled { /* Optional: Style for when user scrolls */
+    background-color: rgba(15, 15, 17, 0.95);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-montserrat);
+    font-weight: 700;
+    font-size: 24px;
+    letter-spacing: 0.5px; /* Reduced letter spacing */
+    color: var(--color-white); /* Simple white logo text */
+    /* Removed gradient and text shadow */
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin: 0 15px; /* Reduced spacing slightly */
+    display: flex; /* Use flex to align link and potential indicator */
+    align-items: center; /* Center align items vertically */
+}
+
+.nav-links a {
+    font-size: 15px;
+    position: relative;
+    color: var(--color-text-muted); /* Muted color for inactive links */
+    transition: color 0.3s ease;
+    padding-bottom: 5px; /* Add padding to prevent overlap with indicator */
+}
+
+.nav-links a:hover {
+    color: var(--color-white); /* White on hover */
+}
+
+/* Simpler hover indicator */
+.nav-links a:after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -6px; /* Adjusted position */
+    width: 0;
+    height: 2px;
+    background: var(--color-primary); /* Primary color indicator */
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover:after {
+    width: 25px; /* Fixed width indicator */
+}
+
+.nav-cta { /* Make CTA link look like a subtle button */
+    color: var(--color-primary);
+    font-weight: 600;
+    border: 1px solid var(--color-primary);
+    padding: 8px 18px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    margin-left: 15px; /* Add margin to separate from other links */
+}
+
+.nav-cta:hover {
+    background-color: var(--color-background-secondary);
+    color: var(--color-background); /* Темный цвет текста при наведении */
+}
+/* Removed gold color and text shadow */
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    padding: 10px;
+    width: 44px;
+    height: 44px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease;
+    position: relative;
+    z-index: 2000;
+}
+
+.hamburger:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.hamburger i {
+    font-size: 24px;
+    color: var(--color-white);
+    transition: color 0.3s ease;
+}
+
+.hamburger:hover i {
+    color: var(--color-primary);
+}
+
+/* Удаляем старые стили для span элементов */
+.hamburger span {
+    display: none;
+}
+
+/* Обновляем стили мобильного меню */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+    
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--color-background);
+        padding: 100px 0 40px; /* Увеличиваем отступ сверху */
+        z-index: 1500;
+        justify-content: center;
+        align-items: center; /* Центрирование по горизонтали */
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        overflow-y: auto;
+    }
+    
+    /* Декоративный элемент фона */
+    .nav-links::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 70vw;
+        height: 70vw;
+        background: radial-gradient(circle, rgba(250, 121, 89, 0.1) 0%, rgba(5, 5, 5, 0) 70%);
+        z-index: -1;
+        pointer-events: none;
+        opacity: 0.8;
+    }
+    
+    .nav-links.active {
+        display: flex;
+        opacity: 1;
+    }
+    
+    .nav-links li {
+        margin: 8px 0; /* Увеличиваем отступы между пунктами меню */
+        width: 100%;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    
+    .nav-links.active li {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0.1s;
+    }
+    
+    .nav-links.active li:nth-child(2) { transition-delay: 0.15s; }
+    .nav-links.active li:nth-child(3) { transition-delay: 0.2s; }
+    .nav-links.active li:nth-child(4) { transition-delay: 0.25s; }
+    .nav-links.active li:nth-child(5) { transition-delay: 0.3s; }
+    .nav-links.active li:nth-child(6) { transition-delay: 0.35s; }
+    .nav-links.active li:nth-child(7) { transition-delay: 0.4s; }
+    
+    .nav-links a {
+        padding: 16px 20px;
+        display: block;
+        color: var(--color-white);
+        border-bottom: none; /* Убираем разделительную линию */
+        font-weight: 600;
+        font-size: 22px; /* Увеличиваем размер шрифта */
+        letter-spacing: 0.5px; /* Добавляем межбуквенный интервал */
+        transition: all 0.3s ease;
+    }
+    
+    .nav-links a:hover {
+        background-color: transparent; /* Убираем фон при наведении */
+        color: var(--color-primary);
+        transform: scale(1.05); /* Небольшое увеличение при наведении */
+    }
+    
+    .nav-cta {
+        margin: 30px auto;
+        padding: 18px 30px;
+        width: 80%;
+        max-width: 300px;
+        border-radius: 8px;
+        background-color: var(--color-primary);
+        color: var(--color-white) !important;
+        font-weight: 700 !important;
+        font-size: 18px !important;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        box-shadow: 0 6px 15px rgba(250, 121, 89, 0.3);
+    }
+    
+    .nav-cta:hover {
+        background-color: var(--color-primary-darker) !important;
+        color: var(--color-white) !important;
+        transform: translateY(-3px) !important;
+        box-shadow: 0 10px 20px rgba(250, 121, 89, 0.4);
+    }
+}
+
+/* Hero секция */
+.hero {
+    position: relative;
+    height: 100vh; /* Consider slightly less than 100vh if navbar is tall */
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center content */
+    background-color: var(--color-background); /* Use clean background */
+    overflow: hidden;
+    padding-top: 80px; /* Account for fixed navbar */
+    text-align: center; /* Center text */
+    /* Removed dark gradient */
+}
+
+.hero-bg-accent-ball {
+    position: absolute;
+    left: 50%;
+    bottom: -18vw; /* наполовину выглядывает из низа */
+    transform: translateX(-50%);
+    width: 36vw;
+    height: 36vw;
+    background: var(--color-primary);
+    opacity: 0.45;
+    border-radius: 50%;
+    filter: blur(40px);
+    z-index: 0;
+    pointer-events: none;
+    animation: hero-accent-ball-fade-move 8s ease-in-out infinite;
+}
+@keyframes hero-accent-ball-fade-move {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(30%);
+    }
+    10% {
+        opacity: 0.45;
+        transform: translateX(-50%) translateY(0%);
+    }
+    80% {
+        opacity: 0.45;
+        transform: translateX(-50%) translateY(0%);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(30%);
+    }
+}
+
+.hero-bg-accent-diamond {
+    position: absolute;
+    left: 50%;
+    top: -27vw; /* выше на 30% от высоты ромба (36vw * 0.3 = 10.8vw) */
+    transform: translateX(-50%) rotate(45deg);
+    width: 36vw;
+    height: 36vw;
+    background: var(--color-primary);
+    opacity: 0.15;
+    border-radius: 8%; /* чуть скруглить углы */
+    filter: blur(120px); /* Гауссиан блюр увеличен в 3 раза */
+    z-index: 0;
+    pointer-events: none;
+    animation: hero-accent-diamond-fade-move 8s ease-in-out infinite;
+}
+@keyframes hero-accent-diamond-fade-move {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) rotate(45deg) translateY(-30%);
+    }
+    10% {
+        opacity: 0.15;
+        transform: translateX(-50%) rotate(45deg) translateY(0%);
+    }
+    80% {
+        opacity: 0.15;
+        transform: translateX(-50%) rotate(45deg) translateY(0%);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-50%) rotate(45deg) translateY(-30%);
+    }
+}
+
+.hero-logo-animated-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 28px;
+}
+
+.hero-logo-animated {
+    width: 64px;
+    height: 64px;
+    display: block;
+    animation: hero-logo-rotate-step 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes hero-logo-rotate-step {
+    0% { transform: rotate(0deg); }
+    12.5% { transform: rotate(45deg); }
+    25% { transform: rotate(45deg); }
+    37.5% { transform: rotate(90deg); }
+    50% { transform: rotate(90deg); }
+    62.5% { transform: rotate(135deg); }
+    75% { transform: rotate(135deg); }
+    87.5% { transform: rotate(180deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#particles-js {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Behind content */
+}
+
+.hero .container {
+    position: relative;
+    z-index: 2;
+    max-width: 850px; /* Constrain text width */
+}
+
+.hero-title {
+    font-size: 48px; /* Maintain size */
+    font-weight: 700; /* Keep title strong */
+    margin-bottom: 25px; /* Adjusted spacing */
+    color: var(--color-white); /* Simple white */
+    opacity: 0;
+    animation: fadeIn 1s ease 0.2s forwards;
+    text-shadow: 0 3px 10px rgba(0, 0, 0, 0.5); /* Soft shadow */
+    /* Removed background clip gradient */
+}
+
+.hero-subtitle {
+    font-size: 18px; /* Slightly smaller */
+    color: var(--color-text-muted); /* Muted color */
+    margin-bottom: 45px; /* Increased spacing */
+    max-width: 700px; /* Constrain subtitle width */
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0;
+    animation: fadeIn 1s ease 0.6s forwards;
+    line-height: 1.8;
+    /* Removed text shadow */
+}
+
+.hero .cta-button {
+    opacity: 0;
+    animation: slideUp 0.6s ease 1s forwards;
+    /* Removed extra shadow */
+}
+
+/* Remove the separate image decoration */
+.hero-decoration {
+   display: none;
+}
+
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* О программе */
+.about {
+    background-color: var(--color-background); /* Use main background */
+    position: relative;
+    /* Removed overlay background image */
+}
+
+.about-content > p { /* Target the main paragraph */
+    text-align: center;
+    max-width: 850px; /* Constrain width */
+    margin: 0 auto 70px; /* Increased bottom margin */
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--color-text-muted); /* Muted color */
+    position: relative;
+}
+
+.about .section-title {
+    color: var(--color-white); /* Standard white title */
+    margin-bottom: 40px;
+}
+
+.about-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjust minmax */
+    gap: 30px; /* Slightly reduced gap */
+    position: relative;
+}
+
+.feature {
+    display: flex;
+    align-items: flex-start;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease; /* Smooth transitions */
+    background: var(--color-background-secondary); /* Use secondary for cards */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: none; /* Remove default shadow */
+    border: 1px solid var(--color-border); /* Subtle border */
+    /* Removed backdrop-filter */
+}
+
+.feature.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.feature:hover {
+    transform: translateY(-8px); /* Lift on hover */
+    box-shadow: var(--shadow-soft); /* Add shadow on hover */
+    border-color: rgba(250, 121, 89, 0.5); /* Primary color border highlight */
+}
+
+.feature-icon {
+    width: 50px; /* Smaller icon container */
+    height: 50px;
+    margin-right: 20px; /* Increased spacing */
+    flex-shrink: 0; /* Prevent shrinking */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(250, 121, 89, 0.1); /* Primary color background */
+    border-radius: 10px; /* Slightly less rounded */
+    padding: 12px;
+}
+
+.feature-icon i {
+    font-size: 24px; /* Adjust icon size if using font icons */
+    width: 24px; /* Explicit size for SVG backgrounds */
+    height: 24px;
+    color: var(--color-primary); /* Primary color for icon */
+    filter: none; /* Remove filter/shadow from icons */
+}
+
+.feature-text h3 {
+    color: var(--color-white); /* White heading */
+    margin-bottom: 8px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.feature-text p {
+    color: var(--color-text-muted); /* Muted text */
+    font-size: 15px; /* Slightly larger */
+    line-height: 1.7;
+    margin: 0;
+    text-align: left;
+}
+
+/* Иконки (SVG заглушки) */
+/* Standardize icon appearance */
+.brain-icon, .person-icon, .chart-icon, .access-icon, 
+.session-icon, .eeg-icon, .support-icon, 
+.phone-icon, .email-icon, .location-icon,
+.instagram-icon, .telegram-icon, .whatsapp-icon,
+.benefits-check /* Include benefits checkmark */ {
+    display: inline-block;
+    width: 1em; /* Use font size for scaling */
+    height: 1em;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: none; /* Remove shadows */
+    vertical-align: middle; /* Align better with text */
+}
+
+/* Update icon colors - Assuming SVGs are single color or use 'currentColor' */
+/* Features icons */
+.feature-icon .brain-icon {
+     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' fill='%23FA7959'%3E%3Cpath d='M208 96a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm-75.2 54.4c.2-2.4.2-4.8.2-7.2C133 76.9 83.2 32 24 32c-8.8 0-16 7.2-16 16s7.2 16 16 16c41.7 0 76.3 27.1 85.7 64.9-28.3 10.5-49.1 35.4-54.3 65.1H8c-4.4 0-8 3.6-8 8v16c0 4.4 3.6 8 8 8h22.1c5.4 44.5 42.7 80.7 87.6 87.5 2.9 88.3 75.8 158.6 165.9 158.6 3.2 0 6.4-.1 9.6-.3 90.5-5.6 162.1-82.9 161.7-174.7-.3-91.3-74.9-165.7-166.2-165.7-54.6 0-103.4 26.6-133.7 67.8-14.2-.6-28.4 2.7-40.1 9.6 6.9-37.2 38.5-65.8 78-65.8 41.7 0 76.3 32 76.3 71.4 0 5.2-.8 10.4-2.4 15.5-25.8-23.8-61.8-37.2-98.7-35.8-5.9-10.2-9.5-21.9-9.5-34.4 0-2.8.2-5.6.5-8.4zm53.6 268.8c-16.1-9.7-28.3-24.7-34.1-41.7h48.1c-6.4 17.4-12.2 31.1-14 41.7zm-47.4-65c2.3-40.6 35.9-72.2 76.3-72.2 38.8 0 71.1 28.5 76.1 65.9-39.6 16.7-83.4 11.8-120.8-11.6-9.7-6.7-20.9-7.2-31.6-1.4V354.1zm217.8-31c-7.5 17.2-20.6 31.6-37.9 41.3-1.4-13-6.6-28.9-14.2-42.4h52.1zm33.7-63.9c13.5 28.4 10.2 63.5-11.5 89.7H338.5c5.3-21.4 14-41.8 33.5-55.1v-.4c0-25-29.5-40.4-50.9-22.4-41.5 35-98.5 38.6-143.2 7.7-16.1-11.1-38.2-.7-38.2 18.8v7.1c-7.2 9.3-12 18.9-14.7 29h-64c-13.7-28.6-7.1-65.6 19.8-87.2 15.9-13 37.2-17.2 56.8-11.3 10.6-14.7 26.7-24.7 45.1-27.1 14.1-1.8 27.8.4 40.1 5.9 20.4-38.1 61.4-62.5 105.9-62.5 71 0 128.9 57.7 129.1 128.8z'/%3E%3C/svg%3E");
+}
+
+.feature-icon .person-icon {
+     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' fill='%23FA7959'%3E%3Cpath d='M256 128a64 64 0 1 0 0-128 64 64 0 1 0 0 128zm-45.7 16c-8.7 0-17.3 1.8-25.3 5.4L160.8 168l-6.3-12.5c-4.3-8.7-12.9-14.4-22.5-15.3s-19 3.4-24.6 11.3l-7.2 12.4-50.8-16.9c-3.1-1-5.9-2.3-8.3-3.8c-8.3-5.3-14.9-13.4-17.2-23.4s-.6-20.4 5.3-28.3l80.8-100.9c3.1-3.9 7.9-6.2 12.9-6.2c5 0 9.7 2.3 12.9 6.2L219.6 92c11.8 14.7 30.7 20.9 48.4 15.7c17.7-5.1 31-19.9 33.7-38.1c2.8-18.3-5.9-36.3-22.1-46.1S239.4 19 222.8 29.1l-15.6 18.5c-3.9 4.6-10.7 5.2-15.3 1.3s-5.2-10.7-1.3-15.3l14.8-17.6c22.2-13.5 49.9-12 70.3 1.9s32 37.8 28.1 63c-3.9 25.2-22.2 45.8-46.5 52.8c-24.3 7-49.9-2-65.2-21.8L127.2 16.8C118.6 5.9 106 0 92.8 0c-13.3 0-25.8 5.8-34.4 16l-.2 .3L-22.6 117.2c-12.1 16.2-16.3 36.6-11.5 56.2s17.9 36.5 36.5 45.3c3.1 1.5 6.3 2.7 9.5 3.8L62.1 239c-20.3 31.7-23.9 73.3-4.7 108.5l35.8 65.2c14.7 26.8 45.1 38.1 73 27.3l81.8-31.5c4.5-1.7 9.3-2.6 14.1-2.6h80c8.8 0 16 7.2 16 16s-7.2 16-16 16H262.2c-8.1 0-16 1.5-23.5 4.4l-81.8 31.5c-46.4 17.9-99-1-123.1-45.7l-35.8-65.2c-13.1-24.1-11.7-53 3.3-75.8l7.6-11.5 7.7 15.4c11.4 22.9 39.3 32.3 62.2 20.9l46-23c13.8-6.9 30.6-1.6 37.5 12.2s1.6 30.6-12.2 37.5l-46 23c-45.9 22.9-101.5 4.7-124.4-41.1l-7.5-14.9-10.5 15.8C-49.1 293-59.9 352 -31.7 403.9l35.8 65.2c39.5 72 127.8 101.4 200.5 66.5l81.8-31.5h76c35.3 0 64-28.7 64-64s-28.7-64-64-64H280c-2.6 0-5.2 .5-7.5 1.4l-81.8 31.5c-9.3 3.6-19.6 0-24.3-9.1L130.5 334.8c-6.3-11.4-2.1-25.9 9.3-32.2s25.9-2.1 32.2 9.3l15.3 27.9 60.9-23.1c1.8-.7 3.7-1.3 5.6-1.9c10.8-3.3 23-2.8 33.9 1.7c18.1 7.5 29.2 24.6 29.2 43.8l37.7 .2c6.8-9.5 17.9-15.4 29.9-15.4h16c11.1 0 21.3 5 28.2 13.1l36.1-3.4c8.7-.9 16.7 5.2 17.5 14l5.4 57c.4 4.5-.9 9.1-3.8 12.6s-7 5.6-11.6 5.9l-57 5.4c-8.7 .9-16.7-5.2-17.5-14s5.2-16.7 14-17.5l44-4.2-4.5-47-64.7 6.1c-3.3 9.7-12.4 16.4-22.9 16.4H255.3c-13.4 0-24.8-10.8-25-24.1c-.1-13.4 10.7-24.4 24.1-24.6H290c.6 0 1.1 0 1.7 .1h.2l61.5-5.8-4.2-10.5c-62.3 1.6-59.4 1.6-64.1 1.1c-1-.1-2-.3-3-.6l-43.4-10.4L219 268.8c-5.6-1.4-11.5-2.1-17.4-2.1c-14.9 0-29.1 4.3-41.3 12.3l-15.6 10.4c-4.3-3.7-9.4-6.4-15.3-7.7c-12.6-2.9-25.3 .7-34.1 8.6l-10.2-15.4 21.8-21c6.8-7.1 8.2-17.8 3.5-26.4s-14.5-13.4-24.2-11.2l-5.9 1.3c-2.2 .5-4.4 .7-6.6 .7l2.9-5c27-46.8 86.6-63.5 134.1-37.7l79 42.5c13.6 7.3 30.7 2.3 38-11.2s2.3-30.7-11.2-38l-79-42.5c-10.9-5.9-22.5-10.3-34.4-13.2z'/%3E%3C/svg%3E");
+}
+
+.feature-icon .chart-icon {
+     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 512' fill='%23FA7959'%3E%3Cpath d='M576 0c17.7 0 32 14.3 32 32V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V32c0-17.7 14.3-32 32-32zM448 96c17.7 0 32 14.3 32 32V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V128c0-17.7 14.3-32 32-32zM352 224V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V224c0-17.7 14.3-32 32-32s32 14.3 32 32zM192 352c0-17.7 14.3-32 32-32s32 14.3 32 32V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V352zM96 352c0-17.7 14.3-32 32-32s32 14.3 32 32V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V352zM32 384c0-17.7 14.3-32 32-32s32 14.3 32 32v96c0 17.7-14.3 32-32 32s-32-14.3-32-32V384z'/%3E%3C/svg%3E");
+}
+
+.feature-icon .access-icon {
+     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 576 512' fill='%23FA7959'%3E%3Cpath d='M320 192h17.1c22.1 38.3 63.5 64 110.9 64c11 0 21.8-1.4 32-4v4 32V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V339.2L280 448h56c17.7 0 32 14.3 32 32s-14.3 32-32 32H192c-53 0-96-43-96-96V192.5c0-16.1-12-29.8-28-31.8l-7.9-1c-17.5-2.2-30-18.2-27.8-35.7s18.2-30 35.7-27.8l7.9 1c48 6 84.1 46.8 84.1 95.3v85.3c34.4-51.7 93.2-85.8 160-85.8zm160 26.5v0c-10 3.5-20.8 5.5-32 5.5c-28.4 0-54-12.4-71.6-32h0c-3.7-4.1-7-8.5-9.9-13.2C357.3 164 352 146.6 352 128v0V54 7.6C352 3.4 355.4 0 360 0H448h5.5c3.5 0 6.4 2.1 7.6 5.1l16 40c.8 2.1 .8 4.4 .1 6.4s-2.1 3.7-4 4.7l-23.9 13.6C482 66.2 496 77.9 496 96c0 11.8-6.3 22.2-15.7 28H480h5.5c4.1 0 7.1 3.8 6.1 7.8C490.1 140.5 486.3 145.7 482 150c-5.6 5.5-12.7 9.5-20.7 11.4l0 0c6.2 2.3 13 3.1 19.9 2.1c13.9-2.1 25.2-11.3 29.8-23.8c1.9-5.2 8.8-6.3 12.5-2.1l14.9 16.9c3.5 4 3.5 10 0 13.9l-5.3 6c-9.7 10.9-23.7 16.5-37.9 15.2zM512 128A32 32 0 1 0 448 128a32 32 0 1 0 64 0zM320 64c0 17.7-14.3 32-32 32H218.5c-13.7 0-27.1-4.2-38.3-12.1l-25.9-18.1c-7.1-5-11.3-13.1-11.3-21.8V32c0-17.7 14.3-32 32-32H288c17.7 0 32 14.3 32 32V64z'/%3E%3C/svg%3E");
+}
+
+/* How-it-works icons */
+.step-icon .session-icon {
+     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 512' fill='%23FA7959'%3E%3Cpath d='M96 64c0-17.7 14.3-32 32-32h32c17.7 0 32 14.3 32 32V224h64V160c0-17.7 14.3-32 32-32h32c17.7 0 32 14.3 32 32v64h64V96c0-17.7 14.3-32 32-32h32c17.7 0 32 14.3 32 32V224h64V544c0 26.5-21.5 48-48 48H144c-26.5 0-48-21.5-48-48V224h64V160c0-17.7 14.3-32 32-32h32c17.7 0 32 14.3 32 32v64h64V64zM448 480a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm-92.9-95.2c15.8-14.3 40.4-12.6 54.3 3.8c6.2 7.3 14.9 12.3 24.5 13.8c9.3 1.4 18.8-1 26.1-6.2c16-11.6 38.7-7 49.5 9.8c5.2 8 7.5 17.1 6.7 25.9c-.8 8.8-4.6 17.2-10.9 23.8c-13.7 14.3-39.9 13.7-54.2-1.4c-7-7.5-17.6-11.2-28-9.9c-10.1 1.3-19.3 7-24.7 15.6c-9.3 14.5-29 19.1-44 10.3c-7.1-4.2-12.3-10.7-14.7-18.4c-2.4-7.8-1.7-16.3 2.1-23.4c5.7-10.7 16.2-18.1 28.5-19.7z'/%3E%3C/svg%3E");
+}
+
+.step-icon .eeg-icon {
+     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 512' fill='%23FA7959'%3E%3Cpath d='M320 0c-17.7 0-32 14.3-32 32V96H144c-8.8 0-16 7.2-16 16V320h64V288c0-17.7 14.3-32 32-32s32 14.3 32 32v32h64V224c0-17.7 14.3-32 32-32s32 14.3 32 32v96h64V112c0-8.8-7.2-16-16-16H352V32c0-17.7-14.3-32-32-32zM31.8 64C14.2 64 0 78.2 0 95.8c0 6.8 2.2 13.4 6.2 18.8L96 234.7V208c0-8.8 7.2-16 16-16h30.8L31.8 64zm320 0L240.8 192H272c8.8 0 16 7.2 16 16v26.7l89.8-120.1c4-5.4 6.2-12 6.2-18.8C384 78.2 369.8 64 352.2 64h-.4zM400.7 264.7L368 308V304c0-26.5-21.5-48-48-48s-48 21.5-48 48v16H240c-26.5 0-48 21.5-48 48v96h-4.7L128 341.6V480c0 17.7 14.3 32 32 32H480c17.7 0 32-14.3 32-32V341.6l-59.3 79.1H448V368c0-26.5-21.5-48-48-48h-32v-16c0-4.4-3.6-8-8-8s-8 3.6-8 8v16h-5.2l53.9-72.2z'/%3E%3C/svg%3E");
+}
+
+.step-icon .support-icon {
+     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' fill='%23FA7959'%3E%3Cpath d='M256 448c141.4 0 256-93.1 256-208S397.4 32 256 32S0 125.1 0 240c0 45.1 17.7 86.8 47.7 120.9c-1.9 24.5-11.4 46.3-21.4 62.9c-5.5 9.2-11.1 16.6-15.2 21.6c-2.1 2.5-3.7 4.4-4.9 5.7c-.6 .6-1 1.1-1.3 1.4l-.3 .3 0 0 0 0 0 0 0 0c-4.6 4.6-5.9 11.4-3.4 17.4c2.5 6 8.3 9.9 14.8 9.9c28.7 0 57.6-8.9 81.6-19.3c22.9-10 42.4-21.9 54.3-30.6c31.8 11.5 67 17.9 104.1 17.9zm0-336c122.7 0 224 82.3 224 176s-101.3 176-224 176c-34.3 0-66.3-6.2-94.5-16.9c-3.6-1.4-7.7-.2-10.2 2.9c-8.1 10.2-22.9 22.1-44.6 31.6c-7.5 3.3-15.7 6.4-24.2 9.2c9.8-17.8 16.1-41.5 17.7-61.9c.5-6-3.5-11.3-9.3-12.5c-25.7-5.3-48.9-16.5-67.4-31.9C28.1 171.4 32 142 32 112C32 70.7 40.3 37.8 64 37.8c16.1 0 32.5 10.2 40.4 25.9c2.5 5 7.7 8.2 13.3 8.2H224c61.9 0 112 50.1 112 112c0 17.7-14.3 32-32 32s-32-14.3-32-32c0-26.5-21.5-48-48-48H109.5c-14.7 0-28-8-35-20.8C68 97.5 64.4 80.7 64 65c-14.8 20.2-22.9 49.3-23.9 80.4c-3.5 105.9 79.9 192.7 179.4 207.2c14.1 2.1 28.5 3.1 43.1 3.1c59.9 0 106.4-20.2 135.9-48.2c7.4-7 8.7-18.1 3.2-26.6s-16-11.5-25.6-7.9c-23.1 8.6-48.1 13.1-73.8 13.1c-41.7 0-82.7-11.5-115.5-32.7c-6.9-4.5-16.2-2.6-20.7 4.4s-2.6 16.2 4.4 20.7c36.9 23.8 81.6 36.8 131.9 36.8c32.4 0 63.9-5.6 93-16.5c.9-.5 1.6-1.1 2.3-1.8c2-2 3.2-4.6 3.2-7.4c0-5.8-4.7-10.5-10.5-10.5c-48.5 0-96.8-15.8-131.4-42.5c-5.9-4.6-14.3-3.6-18.9 2.3s-3.6 14.3 2.3 18.9c16.8 12.9 36.2 23.6 58 31.3c-19.6 13.5-45.6 22.7-71.3 22.7c-4.9 0-9.8-.3-14.7-.8C145.9 352.2 128 319.3 128 272c0-77.4 63.4-144 144-144c27.1 0 48 9.4 48 24c0 13.1-10.7 24-24 24s-24-10.9-24-24c0-2.5-5.3-8-24-8c-57.3 0-96 50.3-96 112c0 41.1 15 75.9 41.5 98.2c13.2 11.1 28.5 18.2 46.5 21.2c35.6-.1 75.3-15.2 95.9-32.8c14.1-12 32.3-18.6 51.8-18.6c30.2 0 55.6 20.2 63.1 47.8c47.7-45.3 76.2-105 76.2-168.8c0-123.7-100.9-224-224-224z'/%3E%3C/svg%3E");
+}
+
+/* Contact icons */
+.contact-item .phone-icon {
+     width: 20px; height: 20px; /* Specific size for contact items */
+     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' fill='%23FA7959'%3E%3Cpath d='M375.8 275.2c-16.4-7-35.4-2.4-46.7 11.4l-21.8 26.5c-2.5 3.1-7 3.8-10.3 1.5c-21.6-14.6-40.5-29.3-58.9-45.2c-5.2-4.5-10.3-9-15.2-13.5c-3-2.7-5.9-5.3-8.7-7.9c-2.3-2.1-4.6-4.2-6.8-6.4l0 0c-2.3-2.2-2.7-5.4-1.2-8.2l19.6-36.9c7.5-14.2 4.9-31.9-6.3-43.3l-58.4-59.2c-11-11.2-28.6-13-42-4.3l-11.5 7.5C89.8 107.8 81.1 128.6 86 148l14.7 58.3c12.3 48.7 40.8 90.2 81.2 118.3l56.7 39.5c17.2 12 36.9 19.1 57.6 20.6l55.7 4.1c19.5 1.4 38-10 43.9-28.8l10.4-33.1c4.8-15.2-2.3-31.7-16.1-38.1l-13.2-6.5zM207.5 250.8c28.7 24.7 56.2 49.4 85.7 70c4 2.8 8.2 5.5 12.5 8.1c9.3 5.7 15.5 4.4 20.2-3.7c7.2-12.5 14.5-25 21.5-37.7c3.2-5.8 7.8-7.8 13.7-5.6c9.8 3.8 19.4 8.1 29.2 12c4.1 1.6 6.6 4.5 6.5 9.1c-.1 8.5-4.5 14-10.8 14c-8.8-.1-16.9 .8-25.4 1c-21.9 .4-41-8.1-59.5-18.1c-34.5-18.5-60.6-46.5-83.3-77.6c-12.6-17.1-23.7-34.9-28.7-55.8c-1.2-5 7.5-9.2 10.8-4.4c7.9 11.7 15.9 23.2 24.1 34.7c4.5 6.2 10.1 11.5 13.2 19c2.9 7.1 0 11.7-5.3 15c-8.1 5-15.7 10.1-20.7 18.5c-6 10.3-3.6 22.1 6.3 29.5zm159.9-166.2L318.1 35.2C312.2 29 304.9 25 296.7 23.2c-16.3-3.7-33.8 1.3-45.8 13.6L184.7 103c-10.8 11-16.6 26.3-15.8 41.8l.3 5.9c.1 2.2-1.7 3.7-3.9 3.6s-4.4-1.4-6.8-2.8c-5.6-3.1-15.5-9.4-24.7-15.4c-5.2-3.3-11-7.1-16.5-10.7c-23.4-15.4-36-18.2-45.3-10.2l-16.1 13.8c-10.2 8.7-10.6 21.1-8 28.5s10.4 13.7 16.6 15.6c16 4.8 39.7 12.2 41.1 12.6c1.4 .4 2.6 1.1 3.4 2c4.2 4.7 10.2 17.2 12.3 21 .8 1.5 .3 2.8-.7 4.1c-34.5 43.2-28.1 125.2 16.5 188.7c-24.5-10.8-43.9-26.7-61-43.9l0 0c-1.4-1.4-3.2-2.5-5.1-3.1c-.7-.2-1.5-.4-2.3-.4c-34.3-2.9-39.6-38.4-39.6-38.4c-.2-24.7 11.8-47.3 31.9-61.8c9.9-7.3 16.7-16.9 17.3-23.3c.5-5.3-3.5-11.6-23.2-28.7c-6.5-5.7-15.2-13.2-16.3-14.1c-11.7-10-21.7-21.8-31.5-34.5c-5.9-7.6-5.3-20.5 6.4-23.1c11.2-2.5 22.2 1.7 33.2 4.9c4.1 1.2 8.2 2.1 12.3 3.1c10.9 2.7 21.9 5.3 32.8 8c9.1 2.2 11.2 8.2 8.4 16.4c-1.6 4.8-4.5 9.1-6.7 13.6c-2.9 6-2.1 10.3 4.5 13.4c18.8 8.8 37.6 17.6 56.3 26.5c1.7 .8 3.1 2.2 3.1 4.1c0 1.1-.4 2.2-1 3.1c-2.4 3.6-6.1 4.9-10.3 3.4c-1.9-.7-3.9-1.1-5.9-1.1c-9.1 0-16.4 7.4-16.4 16.4c0 6.2 3.5 11.5 8.7 14.3c19 9.9 38 20 57 29.7c3.7 1.9 7.5 3.2 11.7 3.6c12.9 1.3 24.2-10.9 22.8-24.2c-1.1-10.5-3.8-20.1-10.5-28.3c-8.5-10.3-15.4-21.8-21.3-33.7c-8.7-17.5-14-36.1-14.4-55.7c-.3-16.5 9.5-32.2 24.6-39.5l1.2-.6c6.7-3.2 13.7-4.8 20.8-4.8c19 0 36.6 10.8 45 27.7l32 64.9c1.4 2.9 .4 6.5-2.3 8.3c-7.7 5.2-14.9 11.1-21.5 17.4c-30.7 29.7-54.7 65.4-67.9 106.7c-1.4 4.3-2.1 9-1.9 13.7l2.1 42.2c.4 7.2 6.4 12.8 13.6 12.4l53.9-3c7.2-.4 12.8-6.4 12.4-13.6l-2.1-42.2c-.3-6.9-3.1-13.4-7.7-18.4c-5.7-6.1-10.8-12.6-15.5-19.5l-1-1.5c-2.1-3-1.4-7.2 1.6-9.2c3-2.1 7.2-1.3 9.3 1.7c1.7 2.4 3.4 4.8 5.2 7.1c9.7 12.3 22.5 21.7 37.3 26.8c8.9 3.1 17.1-6.1 13.5-14.9c-4.6-11-10-21.7-16.4-31.8c-14.8-23.5-31.6-47.1-30.3-77.2c.6-14.6 5.5-22.4 17.3-28.2c2.6-1.3 3.8-3.9 3-6.8c-2.4-8.5-3.6-16.2 3.6-23.3c2.9-2.9 7.6-2.9 10.6 0s2.9 7.6 0 10.6c-2.7 2.7-2 6.1-1.3 9.1c.9 3.4 1.9 6.7 3.2 9.9c3.4 8.9 9.8 15.6 18.9 18.6c20 6.6 38.1 14.5 52.3 30.2c16.4 18.2 26 42.4 27.2 67.3c.1 1.4 1.2 2.6 2.6 2.7l5.5 .5c1.4 .1 2.7-.9 2.9-2.3c2.1-15.5 .5-32.2-4.6-49.4c-2.7-9.4-.3-19.4 6.5-26.4l5.5-5.7c1.5-1.6 3.2-3 5-4.3c9.9-6.5 17.2-16.1 20.9-27.3c3.8-11.5 3.2-23.6-1.6-34.5c-5-11.3-13.7-20.1-24.9-25.1c-20.1-8.9-38.4-21.4-53.6-36.7z'/%3E%3C/svg%3E");
+}
+
+.contact-item .email-icon {
+      width: 20px; height: 20px; /* Specific size for contact items */
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' fill='%23FA7959'%3E%3Cpath d='M64 112c-8.8 0-16 7.2-16 16v22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64H448c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z'/%3E%3C/svg%3E");
+}
+
+.contact-item .location-icon {
+      width: 20px; height: 20px; /* Specific size for contact items */
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512' fill='%23FA7959'%3E%3Cpath d='M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z'/%3E%3C/svg%3E");
+}
+
+/* Footer icons */
+.social-icon .instagram-icon {
+      width: 22px; height: 22px; /* Specific size for footer */
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512' fill='%23A0A0A0'%3E%3Cpath d='M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z'/%3E%3C/svg%3E");
+       transition: background-image 0.3s ease;
+}
+
+.social-icon .telegram-icon {
+       width: 22px; height: 22px; /* Specific size for footer */
+       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 496 512' fill='%23A0A0A0'%3E%3Cpath d='M248 8C111 8 0 119 0 256S111 504 248 504 496 393 496 256 385 8 248 8zM363 176.7c-3.7 39.2-19.9 134.4-28.1 178.3-3.5 18.6-10.3 24.8-16.9 25.4-14.4 1.3-25.3-9.5-39.3-18.7-21.8-14.3-34.2-23.2-55.3-37.2-24.5-16.1-8.6-25 5.3-39.5 3.7-3.8 67.1-61.5 68.3-66.7 .2-.7 .3-3.1-1.2-4.4s-3.6-.8-5.1-.5q-3.3 .7-104.6 69.1-14.8 10.2-26.9 9.9c-8.9-.2-25.9-5-38.6-9.1-15.5-5-27.9-7.7-26.8-16.3q.8-6.7 18.5-13.7 108.4-47.2 144.6-62.3c68.9-28.6 83.2-33.6 92.5-33.8 2.1 0 6.6 .5 9.6 2.9a10.5 10.5 0 0 1 3.5 6.7A43.8 43.8 0 0 1 363 176.7z'/%3E%3C/svg%3E");
+       transition: background-image 0.3s ease;
+}
+
+.social-icon .whatsapp-icon {
+       width: 22px; height: 22px; /* Specific size for footer */
+       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512' fill='%23A0A0A0'%3E%3Cpath d='M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z'/%3E%3C/svg%3E");
+       transition: background-image 0.3s ease;
+}
+
+.social-icon:hover .instagram-icon {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512' fill='%23FFFFFF'%3E%3Cpath d='M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z'/%3E%3C/svg%3E");
+}
+
+.social-icon:hover .telegram-icon {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 496 512' fill='%23FFFFFF'%3E%3Cpath d='M248 8C111 8 0 119 0 256S111 504 248 504 496 393 496 256 385 8 248 8zM363 176.7c-3.7 39.2-19.9 134.4-28.1 178.3-3.5 18.6-10.3 24.8-16.9 25.4-14.4 1.3-25.3-9.5-39.3-18.7-21.8-14.3-34.2-23.2-55.3-37.2-24.5-16.1-8.6-25 5.3-39.5 3.7-3.8 67.1-61.5 68.3-66.7 .2-.7 .3-3.1-1.2-4.4s-3.6-.8-5.1-.5q-3.3 .7-104.6 69.1-14.8 10.2-26.9 9.9c-8.9-.2-25.9-5-38.6-9.1-15.5-5-27.9-7.7-26.8-16.3q.8-6.7 18.5-13.7 108.4-47.2 144.6-62.3c68.9-28.6 83.2-33.6 92.5-33.8 2.1 0 6.6 .5 9.6 2.9a10.5 10.5 0 0 1 3.5 6.7A43.8 43.8 0 0 1 363 176.7z'/%3E%3C/svg%3E");
+}
+
+.social-icon:hover .whatsapp-icon {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512' fill='%23FFFFFF'%3E%3Cpath d='M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z'/%3E%3C/svg%3E");
+}
+
+/* Benefits Checkmark */
+.benefits-check {
+    width: 24px; /* Specific size */
+    height: 24px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' fill='%23FA7959'%3E%3Cpath d='M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z'/%3E%3C/svg%3E"); /* Use primary color */
+}
+
+
+/* Placeholder SVG data needs to be filled in above for each icon */
+
+
+/* Наши программы */
+.programs {
+    background-color: var(--color-background); /* Use main dark background */
+    position: relative;
+    /* Removed overlay background image */
+}
+
+.programs .section-title {
+    color: var(--color-white);
+}
+
+.program-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Adjusted min-width */
+    gap: 35px; /* Adjusted gap */
+    max-width: 1160px;
+    margin: 0 auto;
+    perspective: none; /* Remove perspective */
+}
+
+.program-card {
+    background: var(--color-background-secondary); /* Use secondary dark */
+    border: 1px solid var(--color-border); /* Subtle border */
+    border-radius: 16px; /* Increased radius */
+    padding: 35px; /* Adjusted padding */
+    transition: transform 0.4s ease-out, box-shadow 0.4s ease-out, border-color 0.4s ease-out;
+    opacity: 0;
+    transform: translateY(20px); /* Keep initial transform for animation */
+    height: 100%; /* Ensure cards in a row have same height */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack elements vertically */
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Add default shadow */
+    /* Removed backdrop filter and rotateX transform */
+}
+
+/* Remove top border pseudo-element */
+.program-card::before {
+   display: none;
+}
+
+.program-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.program-card:hover {
+    transform: translateY(-12px); /* Enhanced lift */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25), 0 0 15px rgba(250, 121, 89, 0.15); /* Enhanced shadow */
+    border-color: rgba(250, 121, 89, 0.6); /* Highlight border */
+}
+
+/* Particles effect */
+.card-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.program-card:hover .card-particles {
+    opacity: 0.8;
+}
+
+/* Glow effect */
+.card-glow {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at center, rgba(250, 121, 89, 0.15) 0%, rgba(250, 121, 89, 0) 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 0;
+    pointer-events: none;
+    transform: translate(-20%, -20%);
+}
+
+.program-card:hover .card-glow {
+    opacity: 1;
+}
+
+/* Gold particles and glow */
+.card-particles.gold {
+    filter: hue-rotate(170deg) brightness(1.2);
+}
+
+.card-glow.gold {
+    background: radial-gradient(ellipse at center, rgba(255, 191, 0, 0.2) 0%, rgba(255, 191, 0, 0) 70%);
+}
+
+/* Badge */
+.card-badge {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    background: rgba(250, 121, 89, 0.1);
+    color: var(--color-primary);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 20px;
+    z-index: 2;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(250, 121, 89, 0.3);
+    letter-spacing: 0.5px;
+}
+
+.card-badge.premium {
+    background: rgba(113, 135, 198, 0.1);
+    color: var(--color-blue-accent);
+    border-color: rgba(113, 135, 198, 0.3);
+}
+
+.program-card:hover .card-badge {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.card-title {
+    font-size: 22px; /* Adjusted size */
+    margin-bottom: 15px;
+    color: var(--color-white);
+    position: relative;
+    font-weight: 600;
+    z-index: 1;
+}
+
+/* Remove underline from card title */
+.card-title::after {
+    display: none;
+}
+
+.card-description {
+    color: var(--color-text-muted);
+    margin-bottom: 25px;
+    font-size: 15px;
+    line-height: 1.7;
+    position: relative;
+    z-index: 1;
+}
+
+/* Price block with toggle button */
+.card-price-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 25px 0;
+    position: relative;
+    z-index: 1;
+    background: rgba(25, 25, 30, 0.5);
+    padding: 14px 18px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-price {
+    font-family: var(--font-montserrat);
+    font-weight: 600;
+    font-size: 24px;
+    color: var(--color-white);
+    position: relative;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.premium .card-price {
+    color: var(--color-blue-accent);
+}
+
+/* Toggle button */
+.card-toggle-details {
+    background: none;
+    border: none;
+    color: var(--color-primary);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.premium .card-toggle-details {
+    color: var(--color-blue-accent);
+}
+
+.card-toggle-details:hover {
+    background: rgba(250, 121, 89, 0.1);
+}
+
+.premium .card-toggle-details:hover {
+    background: rgba(255, 191, 0, 0.1);
+}
+
+.arrow-down {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
+}
+
+.card-toggle-details.active .arrow-down {
+    transform: rotate(-135deg);
+}
+
+/* Details section */
+.card-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+    position: relative;
+    z-index: 1;
+}
+
+.card-details.open {
+    max-height: 1000px; /* Adjust as needed */
+    margin-bottom: 25px;
+}
+
+.card-section {
+    margin-bottom: 25px; /* Adjusted spacing */
+    position: relative;
+}
+
+.card-section h4 {
+    color: var(--color-white);
+    margin-bottom: 12px;
+    font-size: 16px; /* Smaller heading */
+    letter-spacing: 0.5px;
+    text-transform: none; /* Remove uppercase */
+    font-weight: 600;
+}
+
+.card-section ul, .card-section ol {
+    margin-left: 0; /* Remove default list indent */
+    padding-left: 0; /* Remove default list indent */
+    list-style: none; /* Remove default bullets/numbers */
+}
+
+.card-section li {
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 20px; /* Space for custom marker */
+    line-height: 1.6;
+    font-size: 14px; /* Smaller list item text */
+    color: var(--color-text-muted);
+}
+
+/* Custom bullet points for UL */
+.card-section ul li::before {
+    content: "";
+    position: absolute;
+    left: 5px; /* Position marker */
+    top: 9px; /* Align marker vertically */
+    width: 6px;
+    height: 6px;
+    background-color: var(--color-primary); /* Use primary color */
+    border-radius: 50%;
+    box-shadow: none; /* Remove shadow */
+}
+
+.premium .card-section ul li::before {
+    background-color: var(--color-secondary-accent);
+}
+
+/* Custom numbering for OL */
+.card-section ol {
+    counter-reset: item;
+}
+
+.card-section ol li {
+    counter-increment: item;
+}
+
+.card-section ol li::before {
+    content: counter(item); /* Display counter */
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--color-primary); /* Primary color number */
+    font-weight: 600;
+    font-size: 14px;
+    min-width: 15px; /* Ensure space for number */
+    text-align: right; /* Align number to the right */
+    padding-right: 5px;
+}
+
+.premium .card-section ol li::before {
+    color: var(--color-secondary-accent);
+}
+
+/* Keep highlight style, but use primary color */
+.highlight {
+    color: var(--color-primary);
+    font-weight: 600;
+    text-shadow: none; /* Remove text shadow */
+}
+
+.premium .highlight {
+    color: var(--color-secondary-accent);
+}
+
+.card-cta {
+    display: block; /* Make it block level */
+    width: 100%; /* Full width */
+    background: var(--color-primary); /* Use primary color */
+    color: var(--color-white);
+    text-align: center;
+    padding: 16px; /* Increased padding */
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(250, 121, 89, 0.3); /* Enhanced shadow */
+    margin-top: auto; /* Push button to bottom if description is short */
+    text-decoration: none; /* Ensure no underline */
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.card-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.7s ease;
+}
+
+.card-cta:hover {
+    background-color: var(--color-primary-darker);
+    transform: translateY(-3px); /* Subtle lift on hover */
+    box-shadow: 0 8px 20px rgba(250, 121, 89, 0.4);
+    color: var(--color-background); /* Темный цвет текста при наведении */
+}
+
+.premium .card-cta {
+    background: var(--color-secondary-accent);
+    box-shadow: 0 4px 15px rgba(255, 191, 0, 0.3);
+}
+
+.premium .card-cta:hover {
+    background-color: #E6AC00; /* Slightly darker gold */
+    box-shadow: 0 8px 20px rgba(255, 191, 0, 0.4);
+    color: var(--color-background); /* Темный цвет текста при наведении */
+}
+
+.card-cta:hover::before {
+    left: 100%;
+}
+
+.premium .card-cta {
+    background: var(--color-secondary-accent);
+    box-shadow: 0 4px 15px rgba(255, 191, 0, 0.3);
+}
+
+.premium .card-cta:hover {
+    background-color: #E6AC00; /* Slightly darker gold */
+    box-shadow: 0 8px 20px rgba(255, 191, 0, 0.4);
+    color: var(--color-background); /* Темный цвет текста при наведении */
+}
+
+/* Premium card accent styling */
+.program-card.premium {
+    background: linear-gradient(145deg, var(--color-background-secondary), rgba(255, 191, 0, 0.15));
+    border-color: rgba(255, 191, 0, 0.3);
+}
+
+.program-card.premium:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25), 0 0 15px rgba(255, 191, 0, 0.25);
+    border-color: rgba(255, 191, 0, 0.6);
+}
+
+.card-glow.gold {
+    background: radial-gradient(ellipse at center, rgba(255, 191, 0, 0.2) 0%, rgba(255, 191, 0, 0) 70%);
+}
+
+.premium .card-toggle-details:hover {
+    background: rgba(255, 191, 0, 0.15);
+    color: #E6AC00;
+}
+
+.premium .card-cta::before {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+}
+
+/* Remove the premium title badge */
+.premium .card-title::after {
+    display: none;
+}
+
+/* Premium card accent styling */
+.program-card.premium {
+    background: linear-gradient(145deg, var(--color-background-secondary), rgba(255, 191, 0, 0.15));
+    border-color: rgba(255, 191, 0, 0.3);
+}
+
+.program-card.premium:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25), 0 0 15px rgba(255, 191, 0, 0.25);
+    border-color: rgba(255, 191, 0, 0.6);
+}
+
+.card-glow.gold {
+    background: radial-gradient(ellipse at center, rgba(255, 191, 0, 0.2) 0%, rgba(255, 191, 0, 0) 70%);
+}
+
+.premium .card-toggle-details:hover {
+    background: rgba(255, 191, 0, 0.15);
+    color: #E6AC00;
+}
+
+.premium .card-cta {
+    background: var(--color-secondary-accent);
+    box-shadow: 0 4px 15px rgba(255, 191, 0, 0.3);
+}
+
+.premium .card-cta:hover {
+    background-color: #E6AC00; /* Slightly darker gold */
+    box-shadow: 0 8px 20px rgba(255, 191, 0, 0.4);
+    color: var(--color-background); /* Темный цвет текста при наведении */
+}
+
+/* Как это работает */
+.how-it-works {
+    background-color: var(--color-background); /* Use main background */
+    position: relative;
+    /* Removed overlay background */
+}
+
+.how-it-works .section-title {
+    color: var(--color-white);
+}
+
+.steps {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    position: relative;
+    margin-bottom: 60px;
+}
+
+/* Remove connecting line */
+.steps::before {
+   display: none;
+}
+
+.step {
+    flex: 1;
+    min-width: 280px;
+    max-width: 340px;
+    text-align: center;
+    padding: 35px 30px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+    background: var(--color-background-secondary);
+    border-radius: 12px;
+    box-shadow: none;
+    position: relative;
+    z-index: 1;
+    border: 1px solid var(--color-border);
+}
+
+.step.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.step:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-soft);
+    border-color: rgba(250, 121, 89, 0.5);
+}
+
+.step-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(250, 121, 89, 0.1);
+    border-radius: 50%;
+    position: relative;
+}
+
+.step-icon::before {
+   display: none;
+}
+
+.step-icon i {
+    font-size: 28px;
+    color: var(--color-primary);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    line-height: 1;
+}
+
+.step h3 {
+    margin-bottom: 12px;
+    font-size: 20px;
+    color: var(--color-white);
+    position: relative;
+    font-weight: 600;
+}
+
+.step h3::after {
+   display: none;
+}
+
+.step p {
+    color: var(--color-text-muted);
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* Section Image below steps */
+.section-image {
+    max-width: 900px;
+    margin: 40px auto 0; /* Add space above */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-medium);
+    position: relative;
+}
+
+.section-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Remove image overlay */
+.image-overlay {
+    display: none;
+}
+
+
+/* Преимущества */
+.benefits {
+    background-color: var(--color-background); /* Main dark bg */
+    position: relative;
+    /* Removed overlay background */
+}
+
+.benefits .section-title {
+    color: var(--color-white);
+}
+
+.benefits-list {
+    list-style: none;
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr; /* Single column layout */
+    gap: 25px; /* Reduced gap */
+    position: relative;
+    padding: 0; /* Remove default padding */
+}
+
+.benefits-list li {
+    display: flex;
+    align-items: flex-start;
+    padding: 25px; /* Adjusted padding */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease, background-color 0.3s ease;
+    background: var(--color-background-secondary); /* Secondary dark background */
+    border-radius: 10px; /* Slightly less rounded */
+    box-shadow: none; /* Remove default shadow */
+    border: 1px solid var(--color-border); /* Subtle border */
+    /* Removed backdrop-filter and hover effects */
+}
+
+.benefits-list li.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.benefits-list li:hover {
+   background-color: var(--color-background); /* Slightly darker on hover */
+   /* Remove transform and shadow on hover */
+}
+
+.benefits-check {
+    /* Styles already defined in icon section */
+    margin-right: 15px; /* Adjusted spacing */
+    margin-top: 3px; /* Align better with text */
+    flex-shrink: 0;
+    /* Removed filter/shadow */
+}
+
+.benefits-list li p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--color-text); /* Standard text color */
+}
+
+.benefits-list li p strong {
+    color: var(--color-primary); /* Use primary color for emphasis */
+    font-weight: 600;
+}
+
+/* Отзывы */
+.testimonials {
+    background-color: var(--color-background); /* Use main background */
+    position: relative;
+    /* Removed overlay background */
+}
+
+.testimonials .section-title {
+    color: var(--color-white);
+}
+
+.testimonials-slider {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+.testimonials-slider.visible {
+    opacity: 1;
+}
+
+.testimonial-slide {
+    padding: 10px 0; /* Reduced padding */
+    display: none;
+}
+
+.testimonial-slide.active {
+    display: block;
+    animation: fadeIn 0.8s ease;
+}
+
+.testimonial-content {
+    background: var(--color-background); /* Darker background */
+    border: 1px solid var(--color-border); /* Subtle border */
+    border-radius: 12px; /* Consistent radius */
+    padding: 40px 50px; /* Adjusted padding */
+    text-align: center;
+    position: relative;
+    box-shadow: var(--shadow-soft); /* Add soft shadow */
+    /* Removed backdrop filter, perspective, gold border, hover effects */
+}
+
+/* Remove large quote pseudo-element */
+.testimonial-content::before {
+    display: none;
+}
+
+/* Optional: Add client photo */
+.client-photo {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 25px; /* Center and add space below */
+    box-shadow: 0 0 0 4px var(--color-background-secondary); /* Frame */
+}
+
+.client-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.testimonial-content p {
+    font-style: normal; /* Remove italic */
+    margin-bottom: 25px; /* Adjusted spacing */
+    line-height: 1.8;
+    font-size: 17px; /* Slightly smaller */
+    position: relative;
+    z-index: 1;
+    color: var(--color-text-muted); /* Muted color */
+}
+
+.testimonial-content h4 {
+    color: var(--color-white); /* White name */
+    font-size: 16px; /* Smaller name */
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+}
+
+/* Remove line above name */
+.testimonial-content h4::before {
+   display: none;
+}
+
+.slider-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px; /* Increased spacing */
+}
+
+/* Simpler slider buttons */
+.prev-btn, .next-btn {
+    background-color: rgba(250, 121, 89, 0.1); /* Subtle primary background */
+    border: 1px solid rgba(250, 121, 89, 0.3); /* Subtle primary border */
+    color: var(--color-primary); /* Primary color icon */
+    border-radius: 50%;
+    width: 45px; /* Slightly smaller */
+    height: 45px;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 0 12px; /* Adjusted margin */
+    transition: all 0.3s ease;
+    display: inline-flex; /* Align icon properly */
+    align-items: center;
+    justify-content: center;
+    /* Removed position relative, overflow hidden, gold */
+}
+
+/* Remove background fill effect */
+.prev-btn::before, .next-btn::before {
+    display: none;
+}
+
+.prev-btn:hover, .next-btn:hover {
+    background-color: rgba(250, 121, 89, 0.2); /* Darker background on hover */
+    border-color: var(--color-primary); /* Stronger border on hover */
+    color: var(--color-background); /* Темный цвет текста при наведении */
+    transform: scale(1.05); /* Slight scale effect */
+    box-shadow: none; /* Remove shadow */
+}
+
+/* FAQ */
+.faq {
+    background-color: var(--color-background); /* Main dark background */
+    position: relative;
+    /* Removed overlay background */
+}
+
+.faq .section-title {
+    color: var(--color-white);
+}
+
+.accordion {
+    max-width: 800px;
+    margin: 0 auto;
+    z-index: 2;
+    position: relative;
+}
+
+.accordion-item {
+    margin-bottom: 15px; /* Reduced gap */
+    border-radius: 10px; /* Consistent radius */
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    box-shadow: none; /* Remove default shadow */
+    border: 1px solid var(--color-border); /* Subtle border */
+}
+
+.accordion-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.accordion-header {
+    background: var(--color-background-secondary); /* Secondary dark background */
+    padding: 20px 25px; /* Adjusted padding */
+    cursor: pointer;
+    position: relative;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    font-size: 17px; /* Adjusted size */
+    color: var(--color-white); /* White header text */
+    /* Removed border-radius, backdrop-filter, border */
+}
+
+.accordion-header:after {
+    content: "+";
+    position: absolute;
+    right: 25px; /* Adjusted position */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--color-primary); /* Primary color icon */
+    transition: transform 0.3s ease; /* Animate transform */
+}
+
+.accordion-item.active .accordion-header {
+    background-color: var(--color-background); /* Slightly darker when active */
+    /* Remove border radius changes */
+}
+
+.accordion-item.active .accordion-header:after {
+    content: "−"; /* Use minus sign */
+    transform: translateY(-50%) rotate(0deg); /* Remove rotation */
+}
+
+.accordion-item:hover .accordion-header {
+    background-color: var(--color-background); /* Darken on hover */
+    /* Remove shadow and transform on hover */
+}
+
+.accordion-content {
+    background-color: var(--color-background-secondary); /* Match header bg */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out; /* Smooth transition */
+    padding: 0 25px; /* Add horizontal padding, vertical handled by max-height */
+    /* Removed border radius, border, backdrop filter */
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 300px; /* Adjust as needed */
+    padding: 25px 25px; /* Add vertical padding when open */
+}
+
+.accordion-content p {
+    padding: 0; /* Remove padding from p itself */
+    color: var(--color-text-muted); /* Muted text */
+    line-height: 1.7;
+    font-size: 15px; /* Adjusted size */
+}
+
+/* Контакты */
+.contact {
+    background-color: var(--color-background); /* Use main background */
+    position: relative;
+    /* Removed overlay background */
+}
+
+.contact .section-title {
+    color: var(--color-white);
+}
+
+.contact-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 60px; /* Adjusted spacing */
+    font-size: 18px; /* Adjusted size */
+    line-height: 1.8;
+    position: relative;
+    color: var(--color-text-muted); /* Muted color */
+}
+
+.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px; /* Adjusted gap */
+    justify-content: space-between;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.contact-details, .contact-form {
+    flex: 1;
+    min-width: 320px; /* Adjusted min-width */
+    box-shadow: none; /* Remove default shadow */
+    border-radius: 12px; /* Consistent radius */
+    padding: 40px;
+    background: var(--color-background); /* Darker background */
+    border: 1px solid var(--color-border); /* Subtle border */
+    transition: none; /* Remove hover effects */
+    /* Removed backdrop filter */
+}
+
+/* Remove hover effects */
+.contact-details:hover, .contact-form:hover {
+    box-shadow: none;
+    transform: none;
+}
+
+.contact-title { /* Style for "Наши координаты" and "Записаться..." */
+    font-size: 22px;
+    margin-bottom: 30px;
+    color: var(--color-white);
+    font-weight: 600;
+}
+
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px; /* Adjusted spacing */
+    position: relative;
+    padding-left: 0; /* Remove padding */
+    transition: none; /* Remove hover transform */
+}
+
+.contact-item:hover {
+    transform: none;
+}
+
+/* Remove side line */
+.contact-item:after {
+   display: none;
+}
+
+.contact-item i {
+    margin-right: 15px; /* Adjusted spacing */
+    flex-shrink: 0;
+    color: var(--color-primary); /* Use primary color for icons */
+    font-size: 20px; /* Adjust icon size */
+    /* Styles set in icon section */
+}
+
+.contact-item p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--color-text); /* Standard text color */
+}
+
+.contact-item a { /* Style links within contact items */
+    color: var(--color-text);
+    text-decoration: none;
+}
+.contact-item a:hover {
+    color: var(--color-primary);
+}
+
+
+.contact-map {
+    margin-top: 30px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+}
+
+.contact-map img {
+    display: block;
+    width: 100%;
+    height: auto;
+    filter: grayscale(80%) contrast(1.1) brightness(0.9); /* Style the map image */
+}
+
+
+.form-group {
+    margin-bottom: 20px; /* Adjusted spacing */
+    position: relative;
+}
+
+.form-group input,
+.form-group select { /* Style select element too */
+    width: 100%;
+    padding: 15px 18px; /* Adjusted padding */
+    border-radius: 8px; /* Consistent radius */
+    border: 1px solid var(--color-border); /* Subtle border */
+    background-color: var(--color-background-secondary); /* Slightly lighter input bg */
+    color: var(--color-text); /* White text */
+    font-family: var(--font-opensans);
+    font-size: 15px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    appearance: none; /* Remove default select arrow */
+}
+
+/* Add custom select arrow */
+.form-group select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' viewBox='0 0 12 8'%3E%3Cpath fill='%23A0A0A0' d='M1.41.59L6 5.17 10.59.59 12 2 6 8 0 2 1.41.59z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 18px center;
+    padding-right: 40px; /* Make space for arrow */
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--color-primary); /* Highlight border on focus */
+    background-color: var(--color-background-secondary); /* Keep background */
+    box-shadow: 0 0 0 3px rgba(250, 121, 89, 0.2); /* Subtle focus ring */
+}
+
+.form-group input::placeholder {
+    color: var(--color-text-muted); /* Muted placeholder */
+    transition: none; /* Remove placeholder animation */
+}
+
+.form-group input:focus::placeholder {
+    opacity: 1;
+    transform: none;
+}
+
+.contact-form .cta-button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 16px; /* Slightly larger padding for main button */
+}
+
+.contact-form .cta-button:hover {
+    background-color: var(--color-primary-darker);
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(250, 121, 89, 0.4);
+    color: var(--color-background); /* Темный цвет текста при наведении */
+}
+
+/* Футер */
+.footer {
+    background-color: var(--color-background); /* Main dark bg */
+    padding: 50px 0 30px; /* Adjusted padding */
+    border-top: 1px solid var(--color-border); /* Subtle top border */
+    position: relative;
+    /* Removed gradient overlay */
+}
+
+.footer::before {
+    display: none;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+.footer-logo {
+    font-family: var(--font-montserrat);
+    font-weight: 700;
+    font-size: 22px; /* Slightly smaller */
+    color: var(--color-white); /* Simple white logo */
+    letter-spacing: 0.5px;
+    /* Removed gradient and text shadow */
+}
+
+.footer-social {
+    display: flex;
+    gap: 12px; /* Reduced gap */
+}
+
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px; /* Smaller icons */
+    height: 40px;
+    background: var(--color-background-secondary); /* Secondary dark background */
+    border-radius: 50%;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--color-border); /* Subtle border */
+    /* Removed backdrop filter */
+}
+
+/* Remove gradient fill effect */
+.social-icon::before {
+    display: none;
+}
+
+.social-icon i {
+    position: relative;
+    z-index: 1;
+    color: var(--color-text-muted); /* Muted icon color */
+    transition: color 0.3s ease;
+    /* Styles set in icon section */
+    font-size: 18px; /* Adjust if using font icons */
+}
+
+.social-icon:hover {
+    transform: translateY(-4px); /* Subtle lift */
+    background-color: var(--color-primary); /* Primary color background on hover */
+    border-color: var(--color-primary);
+}
+
+.social-icon:hover i {
+   color: var(--color-white); /* White icon on hover */
+}
+
+.footer-copyright {
+    text-align: center;
+    color: var(--color-text-muted); /* Muted color */
+    font-size: 14px; /* Smaller text */
+    padding-top: 30px;
+    border-top: 1px solid var(--color-border); /* Subtle border */
+    position: relative;
+    z-index: 1;
+}
+
+/* Адаптив */
+@media (max-width: 992px) { /* Adjust breakpoint */
+    h1 { font-size: 38px; }
+    h2 { font-size: 30px; }
+    .hero-title { font-size: 42px; }
+    .hero-subtitle { font-size: 17px; }
+    .section-title { font-size: 30px; }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: fixed; /* Фиксированное позиционирование для полноэкранного меню */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh; /* На всю высоту экрана */
+        background-color: rgba(5, 5, 5, 0.97); /* Почти непрозрачный фон */
+        padding: 80px 0 30px; /* Отступ сверху для навигационной панели */
+        box-shadow: none; /* Убираем тень */
+        z-index: 1500; /* Убедимся, что меню под иконкой гамбургера */
+        justify-content: center; /* Центрируем содержимое по вертикали */
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        overflow-y: auto; /* Добавляем прокрутку, если контент не помещается */
+    }
+
+    .nav-links.active {
+        display: flex;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .nav-links li {
+        margin: 0;
+        width: 100%;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .nav-links.active li {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0.1s;
+    }
+
+    .nav-links.active li:nth-child(2) { transition-delay: 0.15s; }
+    .nav-links.active li:nth-child(3) { transition-delay: 0.2s; }
+    .nav-links.active li:nth-child(4) { transition-delay: 0.25s; }
+    .nav-links.active li:nth-child(5) { transition-delay: 0.3s; }
+    .nav-links.active li:nth-child(6) { transition-delay: 0.35s; }
+    .nav-links.active li:nth-child(7) { transition-delay: 0.4s; }
+
+    .nav-links a {
+        padding: 16px 20px;
+        display: block;
+        color: var(--color-white);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        font-weight: 500;
+        font-size: 18px; /* Увеличиваем размер шрифта для большей читаемости */
+        transition: all 0.3s ease;
+    }
+
+    .nav-links a:hover {
+        background-color: rgba(250, 121, 89, 0.1);
+        color: var(--color-primary);
+    }
+
+    .nav-cta {
+        border: none;
+        margin: 25px auto; /* Увеличиваем отступы */
+        padding: 16px 20px;
+        width: 80%;
+        border-radius: 8px;
+        background-color: var(--color-primary);
+        color: var(--color-white) !important;
+        font-weight: 600 !important;
+        font-size: 18px !important; /* Увеличиваем размер шрифта кнопки */
+        border: none !important;
+    }
+
+    .nav-cta:hover {
+        background-color: var(--color-primary-darker) !important;
+        color: var(--color-white) !important;
+        transform: translateY(-2px);
+    }
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: 32px; }
+    h2 { font-size: 26px; }
+    .hero-title { font-size: 30px; }
+    .hero-subtitle { font-size: 15px; }
+    .section-title { font-size: 24px; }
+    
+    .container { padding: 0 15px; }
+
+    .cta-button { padding: 14px 25px; font-size: 15px; }
+    .card-title { font-size: 20px; }
+    .card-section h4 { font-size: 15px; }
+    .card-section li { font-size: 14px; }
+    .card-price { font-size: 24px; }
+    .card-cta { padding: 12px; }
+    
+    .feature { padding: 25px; }
+    .step { padding: 30px 20px; }
+    .benefits-list li { padding: 20px; }
+    .testimonial-content { padding: 25px 20px; }
+    .client-photo { width: 60px; height: 60px; margin-bottom: 20px; }
+    .testimonial-content p { font-size: 16px; }
+    .prev-btn, .next-btn { width: 40px; height: 40px; font-size: 16px; }
+
+    .accordion-header { padding: 15px; font-size: 15px; }
+    .accordion-header::after { right: 15px; }
+    .accordion-content p { font-size: 14px; }
+    .accordion-item.active .accordion-content { padding: 15px; }
+
+    .contact-details, .contact-form { padding: 30px 20px; }
+    .contact-title { font-size: 20px; margin-bottom: 25px; }
+    .contact-item p { font-size: 15px; }
+    .form-group input, .form-group select { padding: 14px 15px; font-size: 14px; }
+    .contact-form .cta-button { padding: 14px; }
+
+    .footer-logo { font-size: 20px; }
+    .social-icon { width: 36px; height: 36px; }
+    .social-icon i { font-size: 16px; }
+    .footer-copyright { font-size: 13px; }
+}
+
+/* Стили для Font Awesome иконок */
+.feature-icon i,
+.step-icon i {
+    font-size: 24px;
+    color: var(--color-primary);
+}
+
+.step-icon i {
+    font-size: 28px; /* Чуть больше иконки в шагах */
+}
+
+.contact-item i {
+    font-size: 20px;
+    color: var(--color-primary);
+    margin-right: 15px;
+}
+
+.social-icon i {
+    font-size: 20px;
+    color: var(--color-text-muted);
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover i {
+    color: var(--color-white);
+}
+
+/* Удаляем старые стили иконок, так как теперь используем Font Awesome */
+.brain-icon, .person-icon, .chart-icon, .access-icon, 
+.session-icon, .eeg-icon, .support-icon, 
+.phone-icon, .email-icon, .location-icon,
+.instagram-icon, .telegram-icon, .whatsapp-icon,
+.benefits-check /* Include benefits checkmark */ {
+    display: none;
+}
+
+/* Стили для иконок в секции преимуществ */
+.benefits-list li i {
+    font-size: 22px;
+    color: var(--color-primary);
+    margin-right: 15px;
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+.step-image {
+    margin-top: 25px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.step-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.step:hover .step-image img {
+    transform: scale(1.03);
+}
+
+.card-particles.blue {
+    background-color: rgba(113, 135, 198, 0.05);
+}
+
+.card-glow.blue {
+    background: radial-gradient(ellipse at center, rgba(113, 135, 198, 0.2) 0%, rgba(113, 135, 198, 0) 70%);
+}
+
+/* Premium card accent styling */
+.program-card.premium {
+    background: linear-gradient(145deg, var(--color-background-secondary), rgba(113, 135, 198, 0.15));
+    border-color: rgba(113, 135, 198, 0.3);
+}
+
+.program-card.premium:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25), 0 0 15px rgba(113, 135, 198, 0.25);
+    border-color: rgba(113, 135, 198, 0.6);
+}
+
+.premium .card-toggle-details:hover {
+    background: rgba(113, 135, 198, 0.15);
+    color: #8599D4;
+}
+
+.premium .card-cta {
+    background: var(--color-blue-accent);
+    box-shadow: 0 4px 15px rgba(113, 135, 198, 0.3);
+}
+
+.premium .card-cta:hover {
+    background-color: #5a6fb0; /* Slightly darker blue */
+    box-shadow: 0 8px 20px rgba(113, 135, 198, 0.4);
+    color: var(--color-background); /* Темный цвет текста при наведении */
+}
+
+.premium .card-cta::before {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+}
+
+.premium .highlight {
+    color: var(--color-blue-accent);
+}
+
+.premium .card-section ul li::before {
+    background-color: var(--color-blue-accent);
+}
+
+.premium .card-section ol li::before {
+    color: var(--color-blue-accent);
+}
+
+.card-track {
+    font-size: 11px; /* Размер в два раза меньше, чем у названия (22px/2) */
+    color: var(--color-text-muted);
+    margin-bottom: 5px;
+    position: relative;
+    z-index: 1;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.premium .card-track {
+    color: var(--color-blue-accent);
+}
+
+.card-title {
+    font-size: 22px; /* Этот размер уже задан, оставляем как есть */
+    margin-bottom: 15px;
+    color: var(--color-white);
+    position: relative;
+    font-weight: 600;
+    z-index: 1;
+}
+
+@media (max-width: 768px) {
+    /* стили для nav-links и кнопок добавлены ранее */
+    
+    .hamburger {
+        display: flex; /* Show hamburger */
+    }
+    
+    .hero { height: auto; min-height: 80vh; padding: 120px 0 80px; } /* Adjust hero padding */
+    .hero-title { font-size: 36px; }
+    .hero-subtitle { font-size: 16px; }
+    
+    .section-title { font-size: 28px; }
+    section { padding: 80px 0; } /* Reduce section padding */
+    
+    .about-features { grid-template-columns: 1fr; }
+    .steps { flex-direction: column; align-items: center; }
+    .program-cards { grid-template-columns: 1fr; }
+    .benefits-list { grid-template-columns: 1fr; }
+    
+    .contact-info {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px; /* Add gap for column layout */
+    }
+    
+    .footer-social {
+        margin-top: 10px; /* Reduced margin */
+        justify-content: center;
+    }
+
+    .testimonial-content { padding: 30px 25px; }
+    .accordion-header { padding: 18px 20px; font-size: 16px; }
+    .accordion-header::after { right: 20px; font-size: 20px; }
+    .accordion-content { padding: 0 20px; }
+    .accordion-item.active .accordion-content { padding: 20px; }
+    
+    /* Скрываем индикатор подчеркивания в мобильном меню */
+    .nav-links a::after {
+        display: none;
+    }
+}
