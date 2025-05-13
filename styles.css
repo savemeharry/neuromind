@@ -394,6 +394,10 @@ section::before {
     /* Removed dark gradient */
 }
 
+.accent-color {
+    color: var(--color-primary);
+}
+
 .hero-bg-accent-ball {
     position: absolute;
     left: 50%;
@@ -517,7 +521,7 @@ section::before {
 .hero-subtitle {
     font-size: 18px; /* Slightly smaller */
     color: var(--color-text-muted); /* Muted color */
-    margin-bottom: 45px; /* Increased spacing */
+    margin-bottom: 25px; /* Reduced spacing to accommodate features */
     max-width: 700px; /* Constrain subtitle width */
     margin-left: auto;
     margin-right: auto;
@@ -527,9 +531,55 @@ section::before {
     /* Removed text shadow */
 }
 
+/* Hero features list */
+.hero-features {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0;
+    animation: fadeIn 1s ease 0.8s forwards;
+}
+
+.hero-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    text-align: left;
+}
+
+.hero-feature i {
+    color: var(--color-primary);
+    font-size: 22px;
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+.hero-feature p {
+    color: var(--color-text);
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.hero-unique {
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 35px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0;
+    animation: fadeIn 1s ease 1s forwards;
+    font-size: 17px;
+}
+
 .hero .cta-button {
     opacity: 0;
-    animation: slideUp 0.6s ease 1s forwards;
+    animation: slideUp 0.6s ease 1.2s forwards;
     /* Removed extra shadow */
 }
 
@@ -1949,10 +1999,28 @@ section::before {
     h2 { font-size: 26px; }
     .hero-title { font-size: 30px; }
     .hero-subtitle { font-size: 15px; }
+    
+    .hero-features {
+        gap: 12px;
+    }
+    
+    .hero-feature i {
+        font-size: 18px;
+    }
+    
+    .hero-feature p {
+        font-size: 14px;
+    }
+    
+    .hero-unique {
+        font-size: 15px;
+        margin-bottom: 30px;
+    }
+    
     .section-title { font-size: 24px; }
     
     .container { padding: 0 15px; }
-
+    
     .cta-button { padding: 14px 25px; font-size: 15px; }
     .card-title { font-size: 20px; }
     .card-section h4 { font-size: 15px; }
@@ -1967,18 +2035,18 @@ section::before {
     .client-photo { width: 60px; height: 60px; margin-bottom: 20px; }
     .testimonial-content p { font-size: 16px; }
     .prev-btn, .next-btn { width: 40px; height: 40px; font-size: 16px; }
-
+    
     .accordion-header { padding: 15px; font-size: 15px; }
     .accordion-header::after { right: 15px; }
     .accordion-content p { font-size: 14px; }
     .accordion-item.active .accordion-content { padding: 15px; }
-
+    
     .contact-details, .contact-form { padding: 30px 20px; }
     .contact-title { font-size: 20px; margin-bottom: 25px; }
     .contact-item p { font-size: 15px; }
     .form-group input, .form-group select { padding: 14px 15px; font-size: 14px; }
     .contact-form .cta-button { padding: 14px; }
-
+    
     .footer-logo { font-size: 20px; }
     .social-icon { width: 36px; height: 36px; }
     .social-icon i { font-size: 16px; }
@@ -2135,6 +2203,28 @@ section::before {
     .hero-title { font-size: 36px; }
     .hero-subtitle { font-size: 16px; }
     
+    .hero-features {
+        max-width: 100%;
+        padding: 0 20px;
+    }
+    
+    .hero-feature {
+        gap: 12px;
+    }
+    
+    .hero-feature i {
+        font-size: 20px;
+    }
+    
+    .hero-feature p {
+        font-size: 15px;
+    }
+    
+    .hero-unique {
+        font-size: 16px;
+        padding: 0 20px;
+    }
+    
     .section-title { font-size: 28px; }
     section { padding: 80px 0; } /* Reduce section padding */
     
@@ -2169,4 +2259,29 @@ section::before {
     .nav-links a::after {
         display: none;
     }
+}
+
+@media (max-width: 480px) {
+    // ... existing code ...
+    .hero-title { font-size: 30px; }
+    .hero-subtitle { font-size: 15px; }
+    
+    .hero-features {
+        gap: 12px;
+    }
+    
+    .hero-feature i {
+        font-size: 18px;
+    }
+    
+    .hero-feature p {
+        font-size: 14px;
+    }
+    
+    .hero-unique {
+        font-size: 15px;
+        margin-bottom: 30px;
+    }
+    
+    // ... existing code ...
 }
