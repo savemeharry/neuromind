@@ -34,6 +34,69 @@
     --transition-standard: all 0.3s ease;
 }
 
+/* Highlight Research Effect */
+.highlight-research {
+    position: relative;
+    display: inline-block;
+    color: var(--color-white);
+    font-weight: 700;
+}
+
+/* Floating magnifier icon */
+.floating-magnifier {
+    position: absolute;
+    color: var(--color-primary);
+    font-size: 1.2em;
+    opacity: 0.9;
+    animation: floatMagnifier 8s ease-in-out infinite;
+    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.5));
+    z-index: 1;
+    pointer-events: none;
+}
+
+@keyframes floatMagnifier {
+    0% {
+        top: -5px;
+        left: 10%;
+        transform: rotate(-5deg);
+    }
+    15% {
+        top: -12px;
+        left: 30%;
+        transform: rotate(5deg);
+    }
+    30% {
+        top: 0px;
+        left: 60%;
+        transform: rotate(10deg);
+    }
+    45% {
+        top: -8px;
+        left: 85%;
+        transform: rotate(0deg);
+    }
+    60% {
+        top: -15px;
+        left: 70%;
+        transform: rotate(-8deg);
+    }
+    75% {
+        top: -5px;
+        left: 40%;
+        transform: rotate(-15deg);
+    }
+    90% {
+        top: -10px;
+        left: 20%;
+        transform: rotate(-5deg);
+    }
+    100% {
+        top: -5px;
+        left: 10%;
+        transform: rotate(-5deg);
+    }
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -566,15 +629,17 @@ section::before {
 }
 
 .hero-unique {
+    font-size: 22px;
     font-weight: 600;
-    color: var(--color-text);
-    margin-bottom: 35px;
-    max-width: 700px;
+    margin: 30px 0;
+    color: var(--color-white);
+    text-align: center;
+    line-height: 1.5;
+    max-width: 800px;
     margin-left: auto;
     margin-right: auto;
-    opacity: 0;
-    animation: fadeIn 1s ease 1s forwards;
-    font-size: 17px;
+    position: relative;
+    z-index: 5;
 }
 
 .hero .cta-button {
@@ -607,13 +672,11 @@ section::before {
 }
 
 .about-content > p { /* Target the main paragraph */
+    font-size: 17px;
+    max-width: 850px;
+    margin: 0 auto 30px;
     text-align: center;
-    max-width: 850px; /* Constrain width */
-    margin: 0 auto 70px; /* Increased bottom margin */
-    font-size: 18px;
-    line-height: 1.8;
-    color: var(--color-text-muted); /* Muted color */
-    position: relative;
+    line-height: 1.7;
 }
 
 .about .section-title {
@@ -2262,7 +2325,7 @@ section::before {
 }
 
 @media (max-width: 480px) {
-    // ... existing code ...
+    /* existing code */
     .hero-title { font-size: 30px; }
     .hero-subtitle { font-size: 15px; }
     
@@ -2283,5 +2346,905 @@ section::before {
         margin-bottom: 30px;
     }
     
-    // ... existing code ...
+    /* existing code */
+}
+
+/* Neural Network Effect */
+.neural-effect {
+    position: relative;
+    display: inline-block;
+    color: var(--color-primary);
+    font-weight: 700;
+    perspective: 800px;
+    overflow: visible;
+}
+
+.neural-effect::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: rgba(255, 255, 255, 0.95);
+    z-index: 1;
+}
+
+.neural-effect::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), 
+                               rgba(250, 121, 89, 0.5) 0%, 
+                               transparent 60%);
+    opacity: 0;
+    z-index: 0;
+    animation: pulse 3s ease-in-out infinite alternate;
+    pointer-events: none;
+    border-radius: 5px;
+    filter: blur(5px);
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.1;
+        --x: 30%;
+        --y: 40%;
+    }
+    25% {
+        opacity: 0.3;
+        --x: 60%;
+        --y: 50%;
+    }
+    50% {
+        opacity: 0.15;
+        --x: 45%;
+        --y: 30%;
+    }
+    75% {
+        opacity: 0.25;
+        --x: 20%;
+        --y: 60%;
+    }
+}
+
+/* Add neural network particles */
+.neural-effect {
+    --particle-size: 3px;
+    --particle-color: var(--color-primary);
+}
+
+/* Hide magnifying glass styles */
+.highlight-research, .floating-magnifier {
+    display: none;
+}
+
+.neural-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.neural-effect {
+    position: relative;
+    display: inline-block;
+    color: var(--color-primary);
+    font-weight: 700;
+    z-index: 6;
+}
+
+/* Glow Effect for Research Word */
+.glow-effect {
+    position: relative;
+    color: var(--color-primary);
+    display: inline-block;
+    font-weight: 700;
+    text-shadow: 0 0 6px rgba(250, 121, 89, 0.4); /* Reduced shadow intensity */
+    animation: textPulse 4s ease-in-out infinite;
+    background: linear-gradient(
+        90deg, 
+        #fff 0%, 
+        var(--color-primary) 30%, 
+        var(--color-primary) 70%,
+        #fff 100%
+    );
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Add a subtle glow around the text */
+.glow-effect::after {
+    content: "исследования";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: screen;
+    filter: blur(6px); /* Reduced blur value */
+    color: rgba(250, 121, 89, 0.3); /* Reduced opacity */
+    z-index: -1;
+    animation: textPulse 4s ease-in-out infinite;
+}
+
+@keyframes textPulse {
+    0%, 100% {
+        filter: brightness(1);
+        background-position: 0% center;
+    }
+    50% {
+        filter: brightness(1.15); /* Reduced brightness change */
+        background-position: 100% center;
+    }
+}
+
+/* Remove previous neural/highlight styles */
+.neural-canvas, .neural-effect, .highlight-research, .floating-magnifier {
+    display: none;
+}
+
+.slogan-container {
+    position: relative;
+    margin: 50px auto;
+    padding: 0 25px;
+    max-width: 850px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slogan-accent-left,
+.slogan-accent-right {
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    filter: blur(30px);
+    opacity: 0.7;
+    animation: pulse 3s infinite alternate;
+    z-index: 1;
+}
+
+.slogan-accent-left {
+    left: -10px;
+    top: -15px;
+}
+
+.slogan-accent-right {
+    right: -10px;
+    bottom: -15px;
+    animation-delay: 1.5s;
+}
+
+.highlight-text {
+    position: relative;
+    font-weight: 700;
+    color: var(--color-primary);
+    display: inline-block;
+    padding: 0 5px;
+}
+
+.highlight-text::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--color-primary);
+    opacity: 0.4;
+    border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+    .slogan-container {
+        padding: 0 15px;
+        margin: 40px auto;
+    }
+    
+    .slogan-accent-left,
+    .slogan-accent-right {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    .slogan-container {
+        margin: 30px auto;
+    }
+    
+    .hero-unique {
+        font-size: 18px;
+        margin: 20px 0;
+    }
+}
+
+/* Dedicated Slogan Section Styling */
+.slogan-section {
+    padding: 60px 0;
+    position: relative;
+    background-color: var(--color-background-secondary);
+    overflow: hidden;
+}
+
+.slogan-box {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px 40px;
+    border-radius: var(--border-radius);
+    background: linear-gradient(145deg, rgba(15,15,15,0.9), rgba(10,10,10,0.8));
+    box-shadow: var(--shadow-medium);
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    border: 1px solid rgba(255,255,255,0.05);
+    z-index: 2;
+    transition: all 0.4s ease;
+}
+
+.slogan-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.slogan-icon {
+    flex: 0 0 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, var(--color-primary), var(--color-primary-darker));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 25px rgba(250, 121, 89, 0.2);
+    position: relative;
+    z-index: 3;
+}
+
+.slogan-icon i {
+    font-size: 36px;
+    color: white;
+    animation: pulse 3s infinite alternate;
+}
+
+.slogan-content {
+    flex: 1;
+}
+
+.slogan-title {
+    font-family: var(--font-montserrat);
+    font-weight: 700;
+    font-size: 26px;
+    color: var(--color-primary);
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(250, 121, 89, 0.3);
+}
+
+.slogan-main {
+    font-family: var(--font-montserrat);
+    font-weight: 500;
+    font-size: 20px;
+    color: var(--color-white);
+    line-height: 1.4;
+}
+
+.neural-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    z-index: 1;
+    opacity: 0.2;
+    pointer-events: none;
+}
+
+.neural-lines::before,
+.neural-lines::after {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    background-image: radial-gradient(circle, var(--color-primary) 1px, transparent 1px),
+                     radial-gradient(circle, var(--color-primary) 1px, transparent 1px);
+    background-size: 30px 30px;
+    background-position: 0 0, 15px 15px;
+    animation: neuralMove 120s linear infinite;
+    opacity: 0.3;
+}
+
+.neural-lines::after {
+    background-size: 20px 20px;
+    background-position: 5px 5px, 15px 15px;
+    animation-duration: 90s;
+    animation-direction: reverse;
+    opacity: 0.2;
+}
+
+@keyframes neuralMove {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 768px) {
+    .slogan-box {
+        flex-direction: column;
+        padding: 25px 20px;
+        text-align: center;
+        gap: 20px;
+    }
+    
+    .slogan-title {
+        font-size: 22px;
+    }
+    
+    .slogan-main {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .slogan-section {
+        padding: 40px 0;
+    }
+    
+    .slogan-title {
+        font-size: 20px;
+    }
+    
+    .slogan-main {
+        font-size: 16px;
+    }
+    
+    .slogan-icon {
+        flex: 0 0 60px;
+        height: 60px;
+    }
+    
+    .slogan-icon i {
+        font-size: 28px;
+    }
+}
+
+/* Floating Badge Slogan */
+.floating-badge {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 100;
+    transition: all 0.3s ease;
+    transform: translateY(100px);
+    opacity: 0;
+    animation: badgeAppear 1s forwards 1s;
+}
+
+@keyframes badgeAppear {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.badge-content {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, rgba(10,10,10,0.95) 0%, rgba(20,20,20,0.95) 100%);
+    padding: 15px 25px;
+    border-radius: 60px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    max-width: 400px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.07);
+}
+
+.badge-icon {
+    flex: 0 0 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 5px 15px rgba(250, 121, 89, 0.3);
+}
+
+.badge-icon i {
+    color: white;
+    font-size: 18px;
+}
+
+.badge-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+    text-align: left;
+}
+
+.badge-highlight {
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 3px;
+    display: block;
+    text-align: left;
+}
+
+.badge-text span:last-child {
+    color: var(--color-white);
+    font-size: 12px;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.badge-glow {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, var(--color-primary) 0%, rgba(250,121,89,0) 70%);
+    border-radius: 50%;
+    top: -90px;
+    right: -30px;
+    opacity: 0.07;
+    z-index: 1;
+    animation: badgePulse 4s infinite alternate;
+}
+
+@keyframes badgePulse {
+    0% {
+        opacity: 0.05;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 0.09;
+        transform: scale(1.2);
+    }
+}
+
+.floating-badge:hover .badge-content {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+}
+
+.floating-badge:hover .badge-glow {
+    animation-duration: 2s;
+}
+
+@media (max-width: 768px) {
+    .floating-badge {
+        bottom: 20px;
+        right: 20px;
+        left: 20px;
+    }
+    
+    .badge-content {
+        max-width: 100%;
+        padding: 12px 20px;
+    }
+    
+    .badge-icon {
+        flex: 0 0 35px;
+        height: 35px;
+        margin-right: 10px;
+    }
+    
+    .badge-icon i {
+        font-size: 16px;
+    }
+    
+    .badge-highlight {
+        font-size: 13px;
+    }
+    
+    .badge-text span:last-child {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 480px) {
+    .floating-badge {
+        bottom: 15px;
+        right: 15px;
+        left: 15px;
+    }
+}
+
+/* Floating Badge Slogan */
+.floating-badge {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 100;
+    transition: all 0.3s ease;
+    transform: translateY(100px);
+    opacity: 0;
+    animation: badgeAppear 1s forwards 1s;
+}
+
+/* Hero version of the floating badge */
+.hero-badge {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    transform: translateY(0);
+    opacity: 1;
+    margin: 30px auto 40px;
+    animation: none;
+    width: 100%;
+    max-width: 600px;
+    z-index: 5;
+}
+
+@keyframes badgeAppear {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.badge-content {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, rgba(10,10,10,0.95) 0%, rgba(20,20,20,0.95) 100%);
+    padding: 15px 25px;
+    border-radius: 60px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    max-width: 400px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.07);
+}
+
+/* Hero version badge content */
+.hero-badge .badge-content {
+    max-width: 100%;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.badge-icon {
+    flex: 0 0 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 5px 15px rgba(250, 121, 89, 0.3);
+}
+
+/* Hero version badge icon */
+.hero-badge .badge-icon {
+    flex: 0 0 50px;
+    height: 50px;
+}
+
+.badge-icon i {
+    color: white;
+    font-size: 18px;
+}
+
+/* Hero version badge icon */
+.hero-badge .badge-icon i {
+    font-size: 22px;
+}
+
+.badge-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+    text-align: left;
+}
+
+.badge-highlight {
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 3px;
+    display: block;
+    text-align: left;
+}
+
+/* Hero version badge highlight */
+.hero-badge .badge-highlight {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.badge-text span:last-child {
+    color: var(--color-white);
+    font-size: 12px;
+    line-height: 1.4;
+    text-align: left;
+}
+
+/* Hero version badge text */
+.hero-badge .badge-text span:last-child {
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.badge-glow {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, var(--color-primary) 0%, rgba(250,121,89,0) 70%);
+    border-radius: 50%;
+    top: -90px;
+    right: -30px;
+    opacity: 0.07;
+    z-index: 1;
+    animation: badgePulse 4s infinite alternate;
+}
+
+/* Hero version badge glow */
+.hero-badge .badge-glow {
+    width: 200px;
+    height: 200px;
+    opacity: 0.09;
+}
+
+@keyframes badgePulse {
+    0% {
+        opacity: 0.05;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 0.09;
+        transform: scale(1.2);
+    }
+}
+
+.floating-badge:hover .badge-content {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+}
+
+.floating-badge:hover .badge-glow {
+    animation-duration: 2s;
+}
+
+@media (max-width: 768px) {
+    .floating-badge {
+        bottom: 20px;
+        right: 20px;
+        left: 20px;
+    }
+    
+    .badge-content {
+        max-width: 100%;
+        padding: 12px 20px;
+    }
+    
+    .hero-badge {
+        margin: 25px auto 35px;
+    }
+    
+    .hero-badge .badge-highlight {
+        font-size: 16px;
+    }
+    
+    .hero-badge .badge-text span:last-child {
+        font-size: 14px;
+    }
+    
+    .badge-icon {
+        flex: 0 0 35px;
+        height: 35px;
+        margin-right: 10px;
+    }
+    
+    .badge-icon i {
+        font-size: 16px;
+    }
+    
+    .badge-highlight {
+        font-size: 13px;
+    }
+    
+    .badge-text span:last-child {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 480px) {
+    .floating-badge {
+        bottom: 15px;
+        right: 15px;
+        left: 15px;
+    }
+    
+    .hero-badge {
+        margin: 20px auto 30px;
+    }
+    
+    .hero-badge .badge-icon {
+        flex: 0 0 40px;
+        height: 40px;
+    }
+    
+    .hero-badge .badge-highlight {
+        font-size: 14px;
+    }
+    
+    .hero-badge .badge-text span:last-child {
+        font-size: 12px;
+    }
+}
+
+/* Author Card */
+.author-card {
+    background: linear-gradient(145deg, rgba(20,20,20,0.8), rgba(15,15,15,0.9));
+    border-radius: 15px;
+    padding: 35px;
+    margin: 40px 0 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.07);
+    position: relative;
+    overflow: hidden;
+}
+
+.author-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-primary-darker));
+}
+
+.author-photo-wrapper {
+    flex: 0 0 auto;
+    position: relative;
+}
+
+.author-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--color-primary);
+    box-shadow: 0 5px 15px rgba(250, 121, 89, 0.3);
+    position: relative;
+    z-index: 2;
+    background-color: #111;
+}
+
+.author-photo::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: linear-gradient(135deg, var(--color-primary), transparent, var(--color-primary));
+    border-radius: 50%;
+    z-index: -1;
+    animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.author-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.author-info {
+    flex: 1;
+}
+
+.author-name {
+    color: var(--color-white);
+    font-size: 28px;
+    margin: 0 0 5px;
+    position: relative;
+    display: inline-block;
+}
+
+.author-name::after {
+    display: none; /* Remove the underline */
+}
+
+.author-title {
+    font-size: 18px;
+    color: var(--color-primary);
+    margin-bottom: 15px;
+    font-weight: 600;
+    font-family: var(--font-montserrat);
+}
+
+.author-description {
+    color: var(--color-text-muted); /* Match the muted color from feature cards */
+    line-height: 1.7; /* Match the line height from feature text */
+    font-size: 15px; /* Match the feature card text size */
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .author-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 25px 20px;
+    }
+    
+    .author-name::after {
+        display: none; /* Keep the underline hidden on mobile */
+    }
+    
+    .author-photo {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .author-card {
+        padding: 20px 15px;
+    }
+    
+    .author-name {
+        font-size: 22px;
+    }
+    
+    .author-title {
+        font-size: 16px;
+    }
+    
+    .author-description {
+        font-size: 14px;
+    }
+    
+    .author-photo {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+.about .section-title {
+    color: var(--color-white); /* Standard white title */
+    margin-bottom: 40px;
 }

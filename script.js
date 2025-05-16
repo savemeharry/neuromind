@@ -25,6 +25,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Обработчик для карточек программ
     initProgramCards();
+    
+    // Initialize the neural network effect
+    initNeuralEffect();
 });
 
 // Инициализация particles.js
@@ -636,4 +639,96 @@ function initContactForm() {
         alert('Спасибо! Мы свяжемся с вами в ближайшее время.');
         form.reset();
     });
+}
+
+// Neural Network Effect
+function initNeuralEffect() {
+    const canvas = document.getElementById('neural-canvas');
+    if (!canvas) return;
+    
+    const ctx = canvas.getContext('2d');
+    const researchWord = document.getElementById('research-word');
+    if (!researchWord) return;
+    
+    // Set canvas size
+    function resizeCanvas() {
+        const rect = researchWord.getBoundingClientRect();
+        // Extend the canvas beyond the word for better effect
+        canvas.width = rect.width + 100;
+        canvas.height = rect.height + 100;
+        canvas.style.top = (rect.top - 50 + window.scrollY) + 'px';
+        canvas.style.left = (rect.left - 50) + 'px';
+    }
+    
+    // Call resize on load and window resize
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+    
+    // Create particles
+    const particles = [];
+    const numParticles = 30;
+    const connections = [];
+    
+    class Particle {
+        constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.vx = (Math.random() - 0.5) * 0.8;
+            this.vy = (Math.random() - 0.5) * 0.8;
+            this.radius = Math.random() * 2 + 1;
+            this.color = '#FA7959'; // Primary color
+        }
+        
+        update() {
+            this.x += this.vx;
+            this.y += this.vy;
+            
+            // Bounce off edges
+            if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+            if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+        }
+        
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+            ctx.fillStyle = this.color;
+            ctx.fill();
+        }
+    }
+    
+    // Create particles
+    for (let i = 0; i < numParticles; i++) {
+        particles.push(new Particle());
+    }
+    
+    // Animation loop
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        // Update and draw particles
+        for (let i = 0; i < particles.length; i++) {
+            particles[i].update();
+            particles[i].draw();
+            
+            // Connect particles when they're close
+            for (let j = i + 1; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                
+                if (distance < 80) { // Connection distance
+                    ctx.beginPath();
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.strokeStyle = `rgba(250, 121, 89, ${0.5 - distance/160})`; // Fade based on distance
+                    ctx.lineWidth = 0.5;
+                    ctx.stroke();
+                }
+            }
+        }
+        
+        requestAnimationFrame(animate);
+    }
+    
+    animate();
 } 

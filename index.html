@@ -37,6 +37,7 @@
     <section class="hero" id="hero">
         <div id="particles-js"></div>
         <div class="hero-bg-accent-diamond"></div>
+        <canvas id="neural-canvas" class="neural-canvas"></canvas>
         <div class="container">
             <div class="hero-logo-animated-wrapper">
                 <!-- Inline SVG logo for animation -->
@@ -52,28 +53,23 @@
                 </svg>
             </div>
             <h1 class="hero-title">
-                <span class="accent-color">Neuro Mind Therapy</span>
-                <br>
-                <span>Ваш путь к гармонии разума и тела!</span>
+                <span>Лаборатория <span class="glow-effect">исследования</span> разума.</span>
             </h1>
             <p class="hero-subtitle">Это революционная и уникальная программа психологической поддержки и развития когнитивных навыков, которая сочетает:</p>
             
-            <div class="hero-features">
-                <div class="hero-feature">
-                    <i class="fas fa-check-circle"></i>
-                    <p>Индивидуальный подход – персонализированные сеансы с психологом и замерами активности мозга.</p>
-                </div>
-                <div class="hero-feature">
-                    <i class="fas fa-check-circle"></i>
-                    <p>Групповую поддержку – универсальные техники в удобном формате, подходящие для всех.</p>
-                </div>
-                <div class="hero-feature">
-                    <i class="fas fa-check-circle"></i>
-                    <p>Объективную оценку прогресса – замеры ЭЭГ активности мозга на каждом этапе.</p>
+            <!-- Floating Badge inside Hero Section -->
+            <div class="floating-badge hero-badge">
+                <div class="badge-content">
+                    <div class="badge-icon">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <div class="badge-text">
+                        <span class="badge-highlight">Первый в Казахстане и СНГ</span>
+                        <span>научно обоснованный курс психологической поддержки с нейроизмерением!</span>
+                    </div>
+                    <div class="badge-glow"></div>
                 </div>
             </div>
-            
-            <p class="hero-unique">Первый в Казахстане и СНГ научно обоснованный курс психологической поддержки с нейроизмерением!</p>
             
             <a href="#programs" class="cta-button">Узнать о программах</a>
         </div>
@@ -90,48 +86,50 @@
             <h2 class="section-title">О программе Neuro Mind Therapy</h2>
             <div class="about-content">
                 <p>Программа объединяет индивидуальную терапию, ментальный навигатор в Telegram канале и объективную оценку прогресса с помощью замеров ЭЭГ активности мозга, обеспечивая научно обоснованный подход к восстановлению психологической устойчивости.</p>
+            </div>
                 
-                <p>Методика и техники Neuro Mind Therapy являются авторскими и запатентованными. Разработаны <span class="accent-color">Зариной Сатубалдиной</span> на основе научного исследования и защищены интеллектуальным правом. Это гарантирует уникальность подхода и высокие стандарты качества терапии.</p>
+            <!-- Author Card -->
+            <div class="author-card">
+                <div class="author-photo-wrapper">
+                    <div class="author-photo">
+                        <img src="media/photo/ZarinaS.jpg" alt="Зарина Сатубалдина">
+                    </div>
+                </div>
+                <div class="author-info">
+                    <h3 class="author-name">Зарина Сатубалдина</h3>
+                    <p class="author-title">Основатель и ведущий психолог</p>
+                    <p class="author-description">Методика и техники Neuro Mind Therapy являются авторскими и запатентованными. Разработаны Зариной Сатубалдиной на основе научного исследования и защищены интеллектуальным правом. Это гарантирует уникальность подхода и высокие стандарты качества терапии.</p>
+                </div>
+            </div>
                 
-                <div class="about-features">
-                    <div class="feature">
-                        <div class="feature-icon">
-                            <i class="fa-solid fa-brain"></i>
-                        </div>
-                        <div class="feature-text">
-                            <h3>Научная основа</h3>
-                            <p>Наши методы основаны на исследованиях и используют ЭЭГ для объективного отслеживания прогресса и нейрофизиологических изменений.</p>
-                        </div>
+            <div class="about-features">
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-brain"></i>
                     </div>
-                    
-                    <div class="feature">
-                        <div class="feature-icon">
-                            <i class="fa-solid fa-user-gear"></i>
-                        </div>
-                        <div class="feature-text">
-                            <h3>Персонализированный подход</h3>
-                            <p>Каждый клиент получает индивидуальные сессии, учитывающие его уникальные потребности, текущее состояние и цели терапии.</p>
-                        </div>
+                    <div class="feature-text">
+                        <h3>Научная основа</h3>
+                        <p>Наши методы основаны на исследованиях и используют ЭЭГ для объективного отслеживания прогресса и нейрофизиологических изменений.</p>
                     </div>
-                    
-                    <div class="feature">
-                        <div class="feature-icon">
-                            <i class="fa-solid fa-chart-line"></i>
-                        </div>
-                        <div class="feature-text">
-                            <h3>Измеримые результаты</h3>
-                            <p>Отслеживайте прогресс с помощью измерений активности мозга на каждом этапе, наблюдая реальные изменения в нейропаттернах.</p>
-                        </div>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-chart-line"></i>
                     </div>
-                    
-                    <div class="feature">
-                        <div class="feature-icon">
-                            <i class="fa-solid fa-hand-holding-medical"></i>
-                        </div>
-                        <div class="feature-text">
-                            <h3>Удобный доступ</h3>
-                            <p>Получайте поддержку в любое время через Telegram и нашу обширную базу знаний для углубленного понимания работы мозга и психики.</p>
-                        </div>
+                    <div class="feature-text">
+                        <h3>Измеримые результаты</h3>
+                        <p>Отслеживайте прогресс с помощью измерений активности мозга на каждом этапе, наблюдая реальные изменения в нейропаттернах.</p>
+                    </div>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-hand-holding-medical"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Удобный доступ</h3>
+                        <p>Получайте поддержку в любое время через Telegram и нашу обширную базу знаний для углубленного понимания работы мозга и психики.</p>
                     </div>
                 </div>
             </div>
