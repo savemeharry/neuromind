@@ -36,7 +36,7 @@ function initParticles() {
     particlesJS('particles-js', {
         "particles": {
             "number": {
-                "value": 80,
+                "value": 60, // Уменьшаем количество частиц для мобильных устройств
                 "density": {
                     "enable": true,
                     "value_area": 800
@@ -95,14 +95,14 @@ function initParticles() {
             }
         },
         "interactivity": {
-            "detect_on": "window", // Изменяем на window вместо canvas для лучшего обнаружения тапов
+            "detect_on": "canvas", // Изменено с window на canvas
             "events": {
                 "onhover": {
-                    "enable": true,
+                    "enable": true, // Re-enable hover effects
                     "mode": "grab"
                 },
                 "onclick": {
-                    "enable": true,
+                    "enable": true, // Re-enable click effects
                     "mode": "push" 
                 },
                 "resize": true
@@ -115,7 +115,7 @@ function initParticles() {
                     }
                 },
                 "push": {
-                    "particles_nb": 12 // Увеличиваем количество частиц при клике
+                    "particles_nb": 12
                 }
             }
         },
@@ -152,26 +152,43 @@ function setupTouchEvents() {
         }
     }
     
-    // Добавляем слушатели событий к Hero секции
+    // Добавляем слушатели событий к Hero секции - используем passive: true для разрешения скролла
     heroSection.addEventListener('touchstart', function(e) {
-        e.preventDefault(); // Предотвращаем другие действия браузера
-        
-        // Немедленно создаем частицы при касании
+        // Создаем частицы при касании, но разрешаем скролл
         createParticlesBurst(
             e.touches[0].clientX,
             e.touches[0].clientY,
             12 // Больше частиц при первом касании
         );
-    }, {passive: false});
+    }, {passive: true});
     
+    // Восстанавливаем обработчик touchmove, но с passive: true для разрешения скролла
     heroSection.addEventListener('touchmove', function(e) {
-        e.preventDefault(); // Предотвращаем скролл
-    }, {passive: false});
+        // Создаем частицы при движении пальца
+        createParticlesBurst(
+            e.touches[0].clientX,
+            e.touches[0].clientY,
+            3 // Меньше частиц при движении
+        );
+    }, {passive: true});
+    
+    // Добавляем touchend событие для завершения взаимодействия
+    heroSection.addEventListener('touchend', function(e) {
+        // Можно добавить дополнительную логику при завершении касания
+    }, {passive: true});
     
     // Также добавим события для десктопа
     heroSection.addEventListener('mousedown', function(e) {
         // Создаем частицы при клике мышью
         createParticlesBurst(e.clientX, e.clientY, 12);
+    });
+    
+    // Добавляем mousemove событие
+    heroSection.addEventListener('mousemove', function(e) {
+        // Создаем частицы при движении мыши
+        if (Math.random() > 0.85) { // Ограничиваем количество частиц для производительности
+            createParticlesBurst(e.clientX, e.clientY, 1);
+        }
     });
 }
 

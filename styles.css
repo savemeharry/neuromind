@@ -446,12 +446,12 @@ section::before {
 .hero {
     position: relative;
     height: 100vh; /* Consider slightly less than 100vh if navbar is tall */
-    min-height: 650px;
+    min-height: 650px; 
     display: flex;
     align-items: center;
     justify-content: center; /* Center content */
     background-color: var(--color-background); /* Use clean background */
-    overflow: hidden;
+    overflow: visible; /* Changed from hidden to visible to prevent touch blocking */
     padding-top: 80px; /* Account for fixed navbar */
     text-align: center; /* Center text */
     /* Removed dark gradient */
@@ -562,7 +562,7 @@ section::before {
     width: 100%;
     height: 100%;
     z-index: 1; /* Выше фона, но ниже контента */
-    pointer-events: auto; /* Разрешаем взаимодействие с canvas */
+    touch-action: auto; /* Позволить стандартные touch действия (скролл) */
 }
 
 .hero .container {
@@ -2314,7 +2314,13 @@ section::before {
         display: flex; /* Show hamburger */
     }
     
-    .hero { height: auto; min-height: 80vh; padding: 120px 0 80px; } /* Adjust hero padding */
+    .hero { 
+        height: auto; 
+        min-height: 80vh; 
+        padding: 120px 0 80px; 
+        overflow: visible; 
+        touch-action: auto; /* Explicitly enable scrolling on touch devices */
+    }
     .hero-title { font-size: 36px; }
     .hero-subtitle { font-size: 16px; }
     
