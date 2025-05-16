@@ -1010,6 +1010,72 @@ section::before {
     z-index: 1;
 }
 
+/* Card Benefits Section - Added for direct display in card */
+.card-benefits {
+    background: rgba(25, 25, 30, 0.5);
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin-bottom: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    z-index: 2;
+}
+
+.card-benefits h4 {
+    font-size: 14px;
+    color: var(--color-primary);
+    margin-bottom: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.premium .card-benefits h4 {
+    color: var(--color-blue-accent);
+}
+
+.card-benefits ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.card-benefits li {
+    font-size: 13px;
+    color: var(--color-text-muted);
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.5;
+}
+
+.card-benefits li i {
+    position: absolute;
+    left: 0;
+    top: 3px;
+    color: var(--color-primary);
+    font-size: 12px;
+}
+
+.premium .card-benefits li i {
+    color: var(--color-blue-accent);
+}
+
+@media (max-width: 768px) {
+    .card-benefits {
+        padding: 15px;
+    }
+    
+    .card-benefits h4 {
+        font-size: 13px;
+    }
+    
+    .card-benefits li {
+        font-size: 12px;
+    }
+}
+
 /* Price block with toggle button */
 .card-price-block {
     display: flex;
@@ -1064,7 +1130,7 @@ section::before {
 }
 
 .premium .card-toggle-details:hover {
-    background: rgba(255, 191, 0, 0.1);
+    background: rgba(113, 135, 198, 0.15);
 }
 
 .arrow-down {
@@ -1257,8 +1323,8 @@ section::before {
 }
 
 .premium .card-toggle-details:hover {
-    background: rgba(255, 191, 0, 0.15);
-    color: #E6AC00;
+    background: rgba(113, 135, 198, 0.15);
+    color: #8599D4;
 }
 
 .premium .card-cta::before {
@@ -1287,8 +1353,8 @@ section::before {
 }
 
 .premium .card-toggle-details:hover {
-    background: rgba(255, 191, 0, 0.15);
-    color: #E6AC00;
+    background: rgba(113, 135, 198, 0.15);
+    color: #8599D4;
 }
 
 .premium .card-cta {
@@ -1297,8 +1363,8 @@ section::before {
 }
 
 .premium .card-cta:hover {
-    background-color: #E6AC00; /* Slightly darker gold */
-    box-shadow: 0 8px 20px rgba(255, 191, 0, 0.4);
+    background-color: #5a6fb0; /* Slightly darker blue */
+    box-shadow: 0 8px 20px rgba(113, 135, 198, 0.4);
     color: var(--color-background); /* Темный цвет текста при наведении */
 }
 
@@ -3247,4 +3313,366 @@ section::before {
 .about .section-title {
     color: var(--color-white); /* Standard white title */
     margin-bottom: 40px;
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.program-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    max-width: 800px;
+    width: 90%;
+    max-height: 90vh;
+    background: var(--color-background-secondary);
+    border-radius: 16px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    z-index: 2001;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.program-modal.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    max-height: 90vh;
+}
+
+.modal-header {
+    padding: 25px 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    background: linear-gradient(145deg, rgba(20, 20, 20, 0.8), rgba(15, 15, 15, 0.9));
+}
+
+.modal-badge {
+    display: inline-block;
+    background: rgba(250, 121, 89, 0.1);
+    color: var(--color-primary);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(250, 121, 89, 0.3);
+    letter-spacing: 0.5px;
+}
+
+.modal-badge.premium {
+    background: rgba(113, 135, 198, 0.1);
+    color: var(--color-blue-accent);
+    border-color: rgba(113, 135, 198, 0.3);
+}
+
+.modal-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--color-white);
+    margin-bottom: 15px;
+}
+
+.modal-price {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+.premium-modal .modal-price {
+    color: var(--color-blue-accent);
+}
+
+.modal-body {
+    padding: 30px;
+    overflow-y: auto;
+    max-height: calc(90vh - 150px); /* Account for header height */
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.2);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--color-text-muted);
+    font-size: 18px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.modal-close:hover {
+    background: rgba(250, 121, 89, 0.15);
+    color: var(--color-white);
+    transform: rotate(90deg);
+}
+
+.premium-modal .modal-close:hover {
+    background: rgba(113, 135, 198, 0.15);
+}
+
+.modal-cta {
+    display: inline-block;
+    width: 100%;
+    background: var(--color-primary);
+    color: var(--color-white);
+    text-align: center;
+    padding: 16px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(250, 121, 89, 0.3);
+    margin-top: 30px;
+    text-decoration: none;
+}
+
+.modal-cta:hover {
+    background-color: var(--color-primary-darker);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(250, 121, 89, 0.4);
+    color: var(--color-background);
+}
+
+.premium-modal .modal-cta {
+    background: var(--color-blue-accent);
+    box-shadow: 0 4px 15px rgba(113, 135, 198, 0.3);
+}
+
+.premium-modal .modal-cta:hover {
+    background-color: #5a6fb0;
+    box-shadow: 0 8px 20px rgba(113, 135, 198, 0.4);
+    color: var(--color-background);
+}
+
+@media (max-width: 768px) {
+    .program-modal {
+        width: 95%;
+    }
+    
+    .modal-header {
+        padding: 20px;
+    }
+    
+    .modal-body {
+        padding: 20px;
+    }
+    
+    .modal-title {
+        font-size: 22px;
+    }
+    
+    .modal-price {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .program-modal {
+        width: 100%;
+        height: 100%;
+        max-height: 100vh;
+        border-radius: 0;
+    }
+    
+    .modal-content {
+        height: 100%;
+    }
+    
+    .modal-body {
+        max-height: calc(100vh - 130px);
+    }
+    
+    .modal-header {
+        padding: 15px;
+    }
+    
+    .modal-body {
+        padding: 15px;
+    }
+    
+    .modal-title {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .modal-price {
+        font-size: 18px;
+    }
+    
+    .modal-close {
+        top: 15px;
+        right: 15px;
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+    }
+}
+
+/* Remove old details styles */
+.card-details {
+    display: none;
+}
+
+/* Modal animations */
+@keyframes modalOpen {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+@keyframes modalClose {
+    from {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+}
+
+/* Как это работает */
+.how-it-works {
+    background-color: var(--color-background); /* Use main background */
+    position: relative;
+    /* Removed overlay background */
+}
+
+/* Styling for numbered lists in modals */
+.numbered-list {
+    counter-reset: item;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding-left: 0;
+    list-style: none !important;
+}
+
+.numbered-list li {
+    position: relative;
+    counter-increment: item;
+    padding-left: 30px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: flex-start;
+    line-height: 1.5;
+    list-style-type: none !important;
+}
+
+.numbered-list li::before {
+    content: counter(item);
+    background: var(--color-primary);
+    color: white;
+    font-weight: 600;
+    font-size: 12px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    top: 0px;
+    margin-top: 2px; /* Fine-tune vertical alignment with text */
+}
+
+.premium-modal .numbered-list li::before {
+    background: var(--color-blue-accent);
+}
+
+@media (max-width: 768px) {
+    .numbered-list li {
+        padding-left: 28px;
+        margin-bottom: 10px;
+        font-size: 14px;
+    }
+    
+    .numbered-list li::before {
+        width: 20px;
+        height: 20px;
+        font-size: 11px;
+        top: 0px;
+        margin-top: 2px;
+    }
+}
+
+@media (max-width: 480px) {
+    .numbered-list {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .numbered-list li {
+        padding-left: 25px;
+        margin-bottom: 8px;
+        font-size: 13px;
+    }
+    
+    .numbered-list li::before {
+        width: 18px;
+        height: 18px;
+        font-size: 10px;
+        top: 0px;
+        margin-top: 2px;
+    }
+}
+
+/* Override general list styles for modal numbered lists */
+.card-section ol.numbered-list,
+.modal-body ol.numbered-list {
+    list-style-type: none !important;
+    padding-left: 0;
+}
+
+.card-section ol.numbered-list li,
+.modal-body ol.numbered-list li {
+    list-style-type: none !important;
+}
+
+/* CSS for additional spacing between program stages */
+.card-section > ul > li {
+    margin-bottom: 30px;
+}
+
+.card-section > ul > li:last-child {
+    margin-bottom: 0;
 }
