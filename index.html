@@ -90,14 +90,14 @@
                 
             <!-- Author Card -->
             <div class="author-card">
-                <div class="author-photo-wrapper">
+                <div class="author-photo-wrapper"> 
                     <div class="author-photo">
                         <img src="media/photo/ZarinaS.jpg" alt="Зарина Сатубалдина">
                     </div>
                 </div>
                 <div class="author-info">
                     <h3 class="author-name">Зарина Сатубалдина</h3>
-                    <p class="author-title">Основатель и ведущий психолог</p>
+                    <p class="author-title">Основатель и автор программы</p>
                     <p class="author-description">Методика и техники Neuro Mind Therapy являются авторскими и запатентованными. Разработаны Зариной Сатубалдиной на основе научного исследования и защищены интеллектуальным правом. Это гарантирует уникальность подхода и высокие стандарты качества терапии.</p>
                 </div>
             </div>
@@ -157,17 +157,17 @@
                     <div class="card-benefits">
                         <h4><i class="fa-solid fa-magnifying-glass"></i> ЭТОТ ТРЕК ДЛЯ ВАС, ЕСЛИ:</h4>
                         <ul>
-                            <li><i class="fa-solid fa-check"></i> Живёте в ритме перегрузки, тревоги и усталости</li>
-                            <li><i class="fa-solid fa-check"></i> Ищете удобную и доступную программу самопомощи</li>
-                            <li><i class="fa-solid fa-check"></i> Хотите научиться расслабляться и концентрироваться без психолога</li>
-                            <li><i class="fa-solid fa-check"></i> Предпочитаете научные подходы, а не эзотерику</li>
-                            <li><i class="fa-solid fa-check"></i> Хотите видеть свой прогресс — не только чувствовать</li>
+                            <li>Живёте в ритме перегрузки, тревоги и усталости</li>
+                            <li>Ищете удобную и доступную программу самопомощи</li>
+                            <li>Хотите научиться расслабляться и концентрироваться без психолога</li>
+                            <li>Предпочитаете научные подходы, а не эзотерику</li>
+                            <li>Хотите видеть свой прогресс — не только чувствовать</li>
                         </ul>
                     </div>
                     
                     <div class="card-price-block">
                         <span class="card-price">400 000 тг</span>
-                        <button class="card-toggle-details" data-modal="modal-base">Подробнее <i class="arrow-down"></i></button>
+                        <button class="card-toggle-details" data-modal="modal-base">Подробнее <i class="fa-solid fa-plus"></i></button>
                     </div>
 
                     <a href="#contact" class="card-cta">Выбрать пакет</a>
@@ -186,17 +186,17 @@
                     <div class="card-benefits">
                         <h4><i class="fa-solid fa-star"></i> ЭТОТ ТРЕК ДЛЯ ВАС, ЕСЛИ:</h4>
                         <ul>
-                            <li><i class="fa-solid fa-check"></i> Хотите не просто «пережить трудности», а понять и трансформировать свои внутренние состояния</li>
-                            <li><i class="fa-solid fa-check"></i> Устали бороться в одиночку с тревожностью, выгоранием, перегрузками</li>
-                            <li><i class="fa-solid fa-check"></i> Предпочитаете научные данные и доказательность — видеть прогресс по ЭЭГ, а не «на глаз»</li>
-                            <li><i class="fa-solid fa-check"></i> Нуждаетесь в глубокой работе с психологом и индивидуальной технике восстановления</li>
-                            <li><i class="fa-solid fa-check"></i> Хотите получить навык устойчивости, который останется с вами на всю жизнь</li>
+                            <li>Хотите не просто «пережить трудности», а понять и трансформировать свои внутренние состояния</li>
+                            <li>Устали бороться в одиночку с тревожностью, выгоранием, перегрузками</li>
+                            <li>Предпочитаете научные данные и доказательность — видеть прогресс по ЭЭГ, а не «на глаз»</li>
+                            <li>Нуждаетесь в глубокой работе с психологом и индивидуальной технике восстановления</li>
+                            <li>Хотите получить навык устойчивости, который останется с вами на всю жизнь</li>
                         </ul>
                     </div>
                     
                     <div class="card-price-block">
                         <span class="card-price">700 000 тг</span>
-                        <button class="card-toggle-details" data-modal="modal-premium">Подробнее <i class="arrow-down"></i></button>
+                        <button class="card-toggle-details" data-modal="modal-premium">Подробнее <i class="fa-solid fa-plus"></i></button>
                     </div>
                     
                     <a href="#contact" class="card-cta">Выбрать пакет</a>
@@ -213,8 +213,8 @@
     
     <!-- Модальное окно базового трека -->
     <div id="modal-base" class="program-modal">
+        <button class="modal-close" onclick="document.querySelector('.modal-overlay').classList.remove('active'); this.parentElement.classList.remove('active');"><i class="fa-solid fa-xmark"></i></button>
         <div class="modal-content">
-            <button class="modal-close"><i class="fa-solid fa-times"></i></button>
             <div class="modal-header">
                 <div class="modal-badge">Базовый</div>
                 <h3 class="modal-title">Устойчивость к стрессу</h3>
@@ -223,24 +223,71 @@
             <div class="modal-body">
                 <div class="card-section">
                     <h4>СТРУКТУРА ПРОГРАММЫ</h4>
-                    <ul>
-                        <li><span class="highlight"><i class="fa-solid fa-sync"></i> Этап 1 — Перезагрузка нервной системы (6 недель):</span> 
-                            <ol class="numbered-list">
-                                <li>10 записанных сессий с сопровождением нейроизмерений</li>
-                                <li>Перерыв — 7 дней на интеграцию</li>
-                                <li>Повтор 10 сессий для усиления результата</li>
-                                <li>Результат: Вы научитесь успокаивать свой мозг, расслабляться и «отключать тревожность»</li>
-                            </ol>
-                        </li>
-                        <li><span class="highlight"><i class="fa-solid fa-bolt"></i> Этап 2 — Тренировка фокуса и устойчивости (4 недели):</span>
-                            <ol class="numbered-list">
-                                <li>5 ЭЭГ-сеансов глубокой нейрорелаксации</li>
-                                <li>Перерыв 7 дней</li>
-                                <li>5 ЭЭГ-сеансов на развитие концентрации и стрессоустойчивости</li>
-                                <li>Результат: Вы укрепите нейронные связи, улучшите продуктивность и устойчивость к триггерам.</li>
-                            </ol>
-                        </li>
-                    </ul>
+                    <div class="stage-accordion">
+                        <!-- Этап 1 -->
+                        <div class="stage-item">
+                            <div class="stage-header-compact">
+                                <div class="stage-number-compact">1</div>
+                                <div class="stage-title-compact">
+                                    Перезагрузка нервной системы
+                                    <span class="stage-duration-compact">6 недель</span>
+                                </div>
+                                <div class="stage-toggle"></div>
+                            </div>
+                            <div class="stage-content">
+                                <div class="stage-summary">
+                                    <div class="summary-item">
+                                        <div class="summary-icon"><i class="fa-solid fa-brain"></i></div>
+                                        <div class="summary-text">10 записанных сессий с сопровождением нейроизмерений</div>
+                                    </div>
+                                    <div class="summary-item">
+                                        <div class="summary-icon"><i class="fa-solid fa-pause"></i></div>
+                                        <div class="summary-text">Перерыв — 7 дней на интеграцию</div>
+                                    </div>
+                                    <div class="summary-item">
+                                        <div class="summary-icon"><i class="fa-solid fa-rotate"></i></div>
+                                        <div class="summary-text">Повтор 10 сессий для усиления результата</div>
+                                    </div>
+                                    <div class="summary-item">
+                                        <div class="summary-icon"><i class="fa-solid fa-check"></i></div>
+                                        <div class="summary-text">Результат: Вы научитесь успокаивать свой мозг, расслабляться и «отключать тревожность»</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Этап 2 -->
+                        <div class="stage-item">
+                            <div class="stage-header-compact">
+                                <div class="stage-number-compact">2</div>
+                                <div class="stage-title-compact">
+                                    Тренировка фокуса и устойчивости
+                                    <span class="stage-duration-compact">4 недели</span>
+                                </div>
+                                <div class="stage-toggle"></div>
+                            </div>
+                            <div class="stage-content">
+                                <div class="stage-summary">
+                                    <div class="summary-item">
+                                        <div class="summary-icon"><i class="fa-solid fa-wave-square"></i></div>
+                                        <div class="summary-text">5 ЭЭГ-сеансов глубокой нейрорелаксации</div>
+                                    </div>
+                                    <div class="summary-item">
+                                        <div class="summary-icon"><i class="fa-solid fa-pause"></i></div>
+                                        <div class="summary-text">Перерыв 7 дней</div>
+                                    </div>
+                                    <div class="summary-item">
+                                        <div class="summary-icon"><i class="fa-solid fa-bullseye"></i></div>
+                                        <div class="summary-text">5 ЭЭГ-сеансов на развитие концентрации и стрессоустойчивости</div>
+                                    </div>
+                                    <div class="summary-item">
+                                        <div class="summary-icon"><i class="fa-solid fa-check"></i></div>
+                                        <div class="summary-text">Результат: Вы укрепите нейронные связи, улучшите продуктивность и устойчивость к триггерам</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <a href="#contact" class="modal-cta">Выбрать пакет</a>
             </div>
@@ -249,8 +296,8 @@
     
     <!-- Модальное окно премиум трека -->
     <div id="modal-premium" class="program-modal premium-modal">
+        <button class="modal-close" onclick="document.querySelector('.modal-overlay').classList.remove('active'); this.parentElement.classList.remove('active');"><i class="fa-solid fa-xmark"></i></button>
         <div class="modal-content">
-            <button class="modal-close"><i class="fa-solid fa-times"></i></button>
             <div class="modal-header">
                 <div class="modal-badge premium">Премиум</div>
                 <h3 class="modal-title">Персональный маршрут восстановления</h3>
@@ -258,34 +305,108 @@
             </div>
             <div class="modal-body">
                 <div class="card-section">
-                    <h4><i class="fa-solid fa-compass"></i> СТРУКТУРА ПРОГРАММЫ (100 дней):</h4>
-                    <ul>
-                        <li><span class="highlight">Этап 1 — Диагностика и запуск восстановления (3 недели):</span>
-                            <ol class="numbered-list">
-                                <li>5 индивидуальных сессий с психологом</li>
-                                <li>ЭЭГ-диагностика: до, во время и после каждого сеанса</li>
-                                <li>Выявление ключевых триггеров, глубинных причин напряжения и тревожности</li>
-                                <li><i class="fa-solid fa-bullseye"></i> Вы получаете чёткую картину: что с вами происходит — и почему</li>
-                            </ol>
-                        </li>
-                        <li><span class="highlight">Этап 2 — Персональная программа трансформации (7 недель):</span>
-                            <ol class="numbered-list">
-                                <li>Разработка индивидуальной техники восстановления, основанной на результатах сессий с психологом</li>
-                                <li>10 аудио/видео сессий для глубокой проработки</li>
-                                <li>Перерыв на интеграцию</li>
-                                <li>Повтор 10 сессий — для закрепления и усиления эффекта</li>
-                                <li><i class="fa-solid fa-brain"></i> Каждый шаг отслеживается по ЭЭГ — вы видите, как меняется ваш мозг и состояние</li>
-                            </ol>
-                        </li>
-                        <li><span class="highlight">Этап 3 — Навыки устойчивости и саморегуляции (4 недели):</span>
-                            <ol class="numbered-list">
-                                <li>5 нейросеансов на глубокую релаксацию</li>
-                                <li>Перерыв</li>
-                                <li>5 нейросеансов на развитие концентрации и стрессоустойчивости</li>
-                                <li><i class="fa-solid fa-bullseye"></i> Вы развиваете навык удерживать фокус, сохранять спокойствие и управлять собой в любой ситуации</li>
-                            </ol>
-                        </li>
-                    </ul>
+                    <h4>СТРУКТУРА ПРОГРАММЫ (100 дней):</h4>
+                    <div class="stage-accordion">
+                        <!-- Этап 1 -->
+                        <div class="stage-item">
+                            <div class="stage-header-compact">
+                                <div class="stage-number-compact">1</div>
+                                <div class="stage-title-compact">
+                                    Диагностика и запуск восстановления
+                                    <span class="stage-duration-compact">3 недели</span>
+                                </div>
+                                <div class="stage-toggle"></div>
+                            </div>
+                            <div class="stage-content">
+                                <div class="stage-summary">
+                                    <div class="summary-item">
+                                        <div class="summary-icon"><i class="fa-solid fa-user-doctor"></i></div>
+                                        <div class="summary-text">5 индивидуальных сессий с психологом</div>
+                                    </div>
+                                    <div class="summary-item">
+                                        <div class="summary-icon"><i class="fa-solid fa-brain"></i></div>
+                                        <div class="summary-text">ЭЭГ-диагностика: до, во время и после каждого сеанса</div>
+                                    </div>
+                                    <div class="summary-item">
+                                        <div class="summary-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+                                        <div class="summary-text">Выявление ключевых триггеров, глубинных причин напряжения и тревожности</div>
+                                    </div>
+                                    <div class="summary-item">
+                                        <div class="summary-icon"><i class="fa-solid fa-check"></i></div>
+                                        <div class="summary-text">Вы получаете чёткую картину: что с вами происходит — и почему</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Этап 2 -->
+                        <div class="stage-item">
+                            <div class="stage-header-compact">
+                                <div class="stage-number-compact">2</div>
+                                <div class="stage-title-compact">
+                                    Персональная программа трансформации
+                                    <span class="stage-duration-compact">7 недель</span>
+                                </div>
+                                <div class="stage-toggle"></div>
+                            </div>
+                            <div class="stage-content">
+                                <div class="stage-summary">
+                                    <div class="summary-item">
+                                        <div class="summary-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                                        <div class="summary-text">Разработка индивидуальной техники восстановления, основанной на результатах сессий с психологом</div>
+                                    </div>
+                                    <div class="summary-item">
+                                        <div class="summary-icon"><i class="fa-solid fa-video"></i></div>
+                                        <div class="summary-text">10 аудио/видео сессий для глубокой проработки</div>
+                                    </div>
+                                    <div class="summary-item">
+                                        <div class="summary-icon"><i class="fa-solid fa-pause"></i></div>
+                                        <div class="summary-text">Перерыв на интеграцию</div>
+                                    </div>
+                                    <div class="summary-item">
+                                        <div class="summary-icon"><i class="fa-solid fa-rotate"></i></div>
+                                        <div class="summary-text">Повтор 10 сессий — для закрепления и усиления эффекта</div>
+                                    </div>
+                                    <div class="summary-item">
+                                        <div class="summary-icon"><i class="fa-solid fa-chart-line"></i></div>
+                                        <div class="summary-text">Каждый шаг отслеживается по ЭЭГ — вы видите, как меняется ваш мозг и состояние</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Этап 3 -->
+                        <div class="stage-item">
+                            <div class="stage-header-compact">
+                                <div class="stage-number-compact">3</div>
+                                <div class="stage-title-compact">
+                                    Навыки устойчивости и саморегуляции
+                                    <span class="stage-duration-compact">4 недели</span>
+                                </div>
+                                <div class="stage-toggle"></div>
+                            </div>
+                            <div class="stage-content">
+                                <div class="stage-summary">
+                                    <div class="summary-item">
+                                        <div class="summary-icon"><i class="fa-solid fa-wave-square"></i></div>
+                                        <div class="summary-text">5 нейросеансов на глубокую релаксацию</div>
+                                    </div>
+                                    <div class="summary-item">
+                                        <div class="summary-icon"><i class="fa-solid fa-pause"></i></div>
+                                        <div class="summary-text">Перерыв</div>
+                                    </div>
+                                    <div class="summary-item">
+                                        <div class="summary-icon"><i class="fa-solid fa-bullseye"></i></div>
+                                        <div class="summary-text">5 нейросеансов на развитие концентрации и стрессоустойчивости</div>
+                                    </div>
+                                    <div class="summary-item">
+                                        <div class="summary-icon"><i class="fa-solid fa-check"></i></div>
+                                        <div class="summary-text">Вы развиваете навык удерживать фокус, сохранять спокойствие и управлять собой в любой ситуации</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <a href="#contact" class="modal-cta">Выбрать пакет</a>
             </div>
@@ -612,11 +733,27 @@
                 
                 // Добавляем анимацию открытия
                 targetModal.style.animation = 'modalOpen 0.4s cubic-bezier(0.19, 1, 0.22, 1) forwards';
+                
+                // Раскрываем первый элемент аккордеона в этом модальном окне
+                const firstAccordionItem = targetModal.querySelector('.stage-item');
+                if (firstAccordionItem) {
+                    // Сначала закрываем все элементы
+                    targetModal.querySelectorAll('.stage-item').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    // Затем открываем только первый
+                    firstAccordionItem.classList.add('active');
+                }
             }
         }
         
         // Функция закрытия модального окна
-        function closeModal() {
+        function closeModal(e) {
+            if (e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            
             modalOverlay.classList.remove('active');
             
             modals.forEach(modal => {
@@ -666,6 +803,37 @@
     });
     </script>
     
+    <!-- Скрипт для аккордеона этапов программы -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Инициализация аккордеона
+        const stageHeaders = document.querySelectorAll('.stage-header-compact');
+        
+        // Убираем автоматическую активацию при загрузке страницы,
+        // так как теперь это происходит при открытии модального окна
+        
+        stageHeaders.forEach(header => {
+            header.addEventListener('click', function() {
+                const item = this.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                // Если нажата активная, то не делаем ничего (оставляем открытой)
+                if (isActive) {
+                    return;
+                }
+                
+                // Закрываем все элементы
+                document.querySelectorAll('.stage-item').forEach(el => {
+                    el.classList.remove('active');
+                });
+                
+                // Открываем текущий элемент
+                item.classList.add('active');
+            });
+        });
+    });
+    </script>
+
     <script src="script.js"></script>
 </body>
 </html>

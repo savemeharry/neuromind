@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Инициализация particles.js
 function initParticles() {
+    // Основная инициализация particles.js
     particlesJS('particles-js', {
         "particles": {
             "number": {
@@ -94,7 +95,7 @@ function initParticles() {
             }
         },
         "interactivity": {
-            "detect_on": "canvas",
+            "detect_on": "window", // Изменяем на window вместо canvas для лучшего обнаружения тапов
             "events": {
                 "onhover": {
                     "enable": true,
@@ -102,7 +103,7 @@ function initParticles() {
                 },
                 "onclick": {
                     "enable": true,
-                    "mode": "push"
+                    "mode": "push" 
                 },
                 "resize": true
             },
@@ -114,11 +115,63 @@ function initParticles() {
                     }
                 },
                 "push": {
-                    "particles_nb": 4
+                    "particles_nb": 12 // Увеличиваем количество частиц при клике
                 }
             }
         },
         "retina_detect": true
+    });
+    
+    // Повторно определим события касания после инициализации particles.js
+    setTimeout(() => {
+        setupTouchEvents();
+    }, 100);
+}
+
+// Выделим настройку touch-событий в отдельную функцию
+function setupTouchEvents() {
+    const heroSection = document.querySelector('.hero');
+    if (!heroSection) return;
+    
+    // Получаем доступ к объекту pJS
+    if (!window.pJSDom || !window.pJSDom[0] || !window.pJSDom[0].pJS) return;
+    const pJS = window.pJSDom[0].pJS;
+    
+    // Добавляем частицы напрямую в систему
+    function createParticlesBurst(x, y, count) {
+        // Получаем смещение canvas
+        const canvasRect = pJS.canvas.el.getBoundingClientRect();
+        
+        // Вычисляем позицию относительно canvas
+        const canvasX = x - canvasRect.left;
+        const canvasY = y - canvasRect.top;
+        
+        // Непосредственно вызываем метод для добавления частиц
+        if (pJS.fn && pJS.fn.modes && pJS.fn.modes.pushParticles) {
+            pJS.fn.modes.pushParticles(count, {x: canvasX, y: canvasY});
+        }
+    }
+    
+    // Добавляем слушатели событий к Hero секции
+    heroSection.addEventListener('touchstart', function(e) {
+        e.preventDefault(); // Предотвращаем другие действия браузера
+        
+        // Немедленно создаем частицы при касании
+        createParticlesBurst(
+            e.touches[0].clientX,
+            e.touches[0].clientY,
+            12 // Больше частиц при первом касании
+        );
+    }, {passive: false});
+    
+    heroSection.addEventListener('touchmove', function(e) {
+        e.preventDefault(); // Предотвращаем скролл
+    }, {passive: false});
+    
+    // Также добавим события для десктопа
+    heroSection.addEventListener('mousedown', function(e) {
+        // Создаем частицы при клике мышью
+        createParticlesBurst(e.clientX, e.clientY, 12);
     });
 }
 
