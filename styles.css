@@ -4235,3 +4235,24 @@ section::before {
         font-size: 13px;
     }
 }
+
+@media (max-width: 480px) {
+    .card-price {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-info {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .contact-details {
+        order: 2;
+    }
+    
+    .contact-form {
+        order: 1;
+    }
+}
