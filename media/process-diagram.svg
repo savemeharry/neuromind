@@ -1,0 +1,113 @@
+<svg width="800" height="400" viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Styles -->
+    <style>
+        .step-circle {
+            filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.3));
+        }
+        .step-arrow {
+            filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.15));
+        }
+        .step-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.2));
+        }
+        .step-desc {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 400;
+            filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.1));
+        }
+        .glow {
+            filter: blur(20px);
+            opacity: 0.4;
+        }
+    </style>
+
+    <!-- Background -->
+    <rect width="800" height="400" fill="#0A0A0A" rx="16" ry="16"/>
+    
+    <!-- Subtle background pattern -->
+    <path d="M0 0L800 400" stroke="rgba(255, 94, 58, 0.03)" stroke-width="1"/>
+    <path d="M800 0L0 400" stroke="rgba(255, 94, 58, 0.03)" stroke-width="1"/>
+    <path d="M400 0L400 400" stroke="rgba(255, 94, 58, 0.02)" stroke-width="1"/>
+    <path d="M0 200L800 200" stroke="rgba(255, 94, 58, 0.02)" stroke-width="1"/>
+    
+    <!-- Glows -->
+    <circle cx="150" cy="200" r="60" fill="#FF5E3A" class="glow"/>
+    <circle cx="650" cy="200" r="60" fill="#55A4F3" class="glow"/>
+    
+    <!-- Process Flow Line -->
+    <path d="M100 200 H700" stroke="url(#lineGradient)" stroke-width="3" stroke-linecap="round" stroke-dasharray="8 12"/>
+    
+    <!-- Step 1: Diagnosis -->
+    <circle cx="150" cy="200" r="50" fill="url(#circleGradient1)" class="step-circle"/>
+    <text x="150" y="190" text-anchor="middle" fill="white" font-size="16" class="step-text">ШАГ 1</text>
+    <text x="150" y="210" text-anchor="middle" fill="white" font-size="14" class="step-desc">Диагностика</text>
+    <!-- Icon for Step 1 -->
+    <path d="M130 180 L145 180 L145 165 L155 165 L155 180 L170 180 L170 190 L155 190 L155 205 L145 205 L145 190 L130 190 Z" fill="white"/>
+    
+    <!-- Arrow 1 -->
+    <path d="M220 200 L260 200" stroke="url(#arrowGradient)" stroke-width="2" stroke-linecap="round" class="step-arrow"/>
+    <path d="M260 200 L250 195 L250 205 Z" fill="url(#arrowGradient)" class="step-arrow"/>
+    
+    <!-- Step 2: Sessions -->
+    <circle cx="300" cy="200" r="50" fill="url(#circleGradient2)" class="step-circle"/>
+    <text x="300" y="190" text-anchor="middle" fill="white" font-size="16" class="step-text">ШАГ 2</text>
+    <text x="300" y="210" text-anchor="middle" fill="white" font-size="14" class="step-desc">Сессии</text>
+    <!-- Icon for Step 2 -->
+    <path d="M285 175 C285 170 290 165 295 165 L305 165 C310 165 315 170 315 175 L315 185 C315 190 310 195 305 195 L295 195 C290 195 285 190 285 185 Z" fill="white"/>
+    <path d="M285 205 L315 205" stroke="white" stroke-width="2"/>
+    <path d="M290 215 L310 215" stroke="white" stroke-width="2"/>
+    
+    <!-- Arrow 2 -->
+    <path d="M370 200 L410 200" stroke="url(#arrowGradient)" stroke-width="2" stroke-linecap="round" class="step-arrow"/>
+    <path d="M410 200 L400 195 L400 205 Z" fill="url(#arrowGradient)" class="step-arrow"/>
+    
+    <!-- Step 3: Monitoring -->
+    <circle cx="450" cy="200" r="50" fill="url(#circleGradient3)" class="step-circle"/>
+    <text x="450" y="190" text-anchor="middle" fill="white" font-size="16" class="step-text">ШАГ 3</text>
+    <text x="450" y="210" text-anchor="middle" fill="white" font-size="14" class="step-desc">Мониторинг</text>
+    <!-- Icon for Step 3 -->
+    <path d="M435 170 L450 185 L465 170 L470 175 L450 195 L430 175 Z" fill="white"/>
+    <path d="M450 195 L450 225" stroke="white" stroke-width="2"/>
+    
+    <!-- Arrow 3 -->
+    <path d="M520 200 L560 200" stroke="url(#arrowGradient)" stroke-width="2" stroke-linecap="round" class="step-arrow"/>
+    <path d="M560 200 L550 195 L550 205 Z" fill="url(#arrowGradient)" class="step-arrow"/>
+    
+    <!-- Step 4: Results -->
+    <circle cx="600" cy="200" r="50" fill="url(#circleGradient4)" class="step-circle"/>
+    <text x="600" y="190" text-anchor="middle" fill="white" font-size="16" class="step-text">ШАГ 4</text>
+    <text x="600" y="210" text-anchor="middle" fill="white" font-size="14" class="step-desc">Результаты</text>
+    <!-- Icon for Step 4 -->
+    <path d="M585 185 L595 165 L605 185 L615 165 L615 195 L585 195 Z" fill="white"/>
+    
+    <!-- Gradients -->
+    <defs>
+        <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#FF5E3A"/>
+            <stop offset="50%" stop-color="#FFD166"/>
+            <stop offset="100%" stop-color="#55A4F3"/>
+        </linearGradient>
+        <linearGradient id="circleGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#FF5E3A"/>
+            <stop offset="100%" stop-color="#E04A29"/>
+        </linearGradient>
+        <linearGradient id="circleGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#FF7E5A"/>
+            <stop offset="100%" stop-color="#FF5E3A"/>
+        </linearGradient>
+        <linearGradient id="circleGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#FFD166"/>
+            <stop offset="100%" stop-color="#FFB114"/>
+        </linearGradient>
+        <linearGradient id="circleGradient4" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#55A4F3"/>
+            <stop offset="100%" stop-color="#3A89D8"/>
+        </linearGradient>
+        <linearGradient id="arrowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#FF5E3A"/>
+            <stop offset="100%" stop-color="#FFD166"/>
+        </linearGradient>
+    </defs>
+</svg> 

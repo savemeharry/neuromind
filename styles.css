@@ -4170,6 +4170,18 @@ section::before {
     margin-right: 10px;
     color: var(--color-primary);
     flex-shrink: 0;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.summary-icon.number {
+    width: 24px;
+    height: 24px;
+    background: rgba(250, 121, 89, 0.15);
+}
+
+.premium-modal .summary-icon.number {
+    background: rgba(113, 135, 198, 0.15);
 }
 
 .premium-modal .summary-icon {
@@ -4255,4 +4267,9 @@ section::before {
     .contact-form {
         order: 1;
     }
+}
+
+/* Новый стиль для базового трека */
+.program-card.base .card-track {
+    color: var(--color-primary);
 }
