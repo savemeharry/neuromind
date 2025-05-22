@@ -4273,3 +4273,10 @@ section::before {
 .program-card.base .card-track {
     color: var(--color-primary);
 }
+
+.summary-icon.number i.fa-circle-check {
+    color: #4CAF50;
+    font-size: 1.2em;
+    vertical-align: middle;
+    margin-right: 2px;
+}
