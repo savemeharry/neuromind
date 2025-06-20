@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Блог - Neuro Mind Therapy</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo"><img src="logo.svg" alt="Neuro Mind Therapy Logo" style="height:48px;vertical-align:middle;"></a>
+            <ul class="nav-links">
+                <li><a href="index.html#about">О программе</a></li>
+                <li><a href="index.html#programs">Программы</a></li>
+                <li><a href="index.html#how-it-works">Как это работает</a></li>
+                <li><a href="index.html#benefits">Преимущества</a></li>
+                <li><a href="index.html#testimonials">Отзывы</a></li>
+                <li><a href="index.html#faq">FAQ</a></li>
+                <li><a href="blog.html" class="active">Блог</a></li>
+                <li><a href="index.html#contact" class="nav-cta">Контакты</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars menu-icon"></i>
+                <i class="fas fa-times close-icon" style="display: none;"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero секция блога -->
+    <section class="blog-hero">
+        <div class="container">
+            <h1 class="hero-title">
+                <span>Блог о <span class="glow-effect">нейронауке</span> и психотерапии</span>
+            </h1>
+            <p class="hero-subtitle">Научные исследования, практические инсайты и последние достижения в области нейротехнологий и психического здоровья.</p>
+        </div>
+    </section>
+
+    <!-- Статьи блога -->
+    <section class="blog-articles">
+        <div class="container">
+            <div class="articles-grid">
+                <!-- Статья 1 -->
+                <article class="article-card featured">
+                    <div class="article-badge">Рекомендуем</div>
+                    <div class="article-meta">
+                        <span class="article-date">
+                            <i class="fa-solid fa-calendar"></i>
+                            Июнь 2025
+                        </span>
+                        <span class="article-category">Нейронаука</span>
+                    </div>
+                    <h2 class="article-title">
+                        <a href="blog/neurotech-psychotherapy-research.html">Современные нейротехнологии исследования влияния психотерапии</a>
+                    </h2>
+                    <div class="article-excerpt">
+                        <p>Современные методы исследования открывают уникальные возможности для изучения воздействия психотерапевтических интервенций на мозг, способствуя разработке более эффективных методов лечения...</p>
+                    </div>
+                    <div class="article-author">
+                        <div class="author-photo">
+                            <img src="media/photo/ZarinaS.jpg" alt="Зарина Сатубалдина">
+                        </div>
+                        <div class="author-info">
+                            <span class="author-name">Зарина Сатубалдина</span>
+                            <span class="author-title">Основатель и автор программы</span>
+                        </div>
+                    </div>
+                    <div class="article-tags">
+                        <span class="tag">нейронаука</span>
+                        <span class="tag">психотерапия</span>
+                        <span class="tag">фМРТ</span>
+                        <span class="tag">ЭЭГ</span>
+                        <span class="tag">нейрофидбек</span>
+                    </div>
+                    <a href="blog/neurotech-psychotherapy-research.html" class="article-link">
+                        Читать статью <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </article>
+
+                <!-- Заглушка для будущих статей -->
+                <article class="article-card coming-soon">
+                    <div class="coming-soon-content">
+                        <i class="fa-solid fa-clock"></i>
+                        <h3>Скоро новые статьи</h3>
+                        <p>Мы готовим для вас новые материалы о нейронауке, психотерапии и инновационных методах лечения.</p>
+                    </div>
+                </article>
+
+                <article class="article-card coming-soon">
+                    <div class="coming-soon-content">
+                        <i class="fa-solid fa-lightbulb"></i>
+                        <h3>Практические инсайты</h3>
+                        <p>Готовятся статьи о практическом применении нейротехнологий в повседневной психотерапевтической работе.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подписка на обновления -->
+    <section class="blog-subscribe">
+        <div class="container">
+            <div class="subscribe-card">
+                <div class="subscribe-content">
+                    <h3>Будьте в курсе новых статей</h3>
+                    <p>Подпишитесь на обновления, чтобы первыми получать новые материалы о нейронауке и психотерапии.</p>
+                </div>
+                <div class="subscribe-form">
+                    <input type="email" placeholder="Ваш email" class="subscribe-input">
+                    <button class="subscribe-btn">
+                        <i class="fa-solid fa-bell"></i>
+                        Подписаться
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="logo.svg" alt="Neuro Mind Therapy" style="height: 40px; vertical-align: middle; margin-right: 10px;">
+                    Neuro Mind Therapy
+                </div>
+                <div class="footer-social">
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2024 Neuro Mind Therapy. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
